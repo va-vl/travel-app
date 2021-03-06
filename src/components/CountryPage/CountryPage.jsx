@@ -1,38 +1,53 @@
 import * as React from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { useLanguage } from '../../utils/localStorage';
+import queryFakeBackend from '../../utils/api';
 
-const getCountryObj = (countryId, language) => fetch(`/API_URL/countryId=${countryId}`, {
-  method: 'GET',
-  headers: { 'Accept-Language': language },
-})
-  .then((res) => res.text())
-  .then((text) => JSON.parse(text))
-  .catch(() => null);
+const getCountry = (countryId, language) => queryFakeBackend(
+  `/API_URL/countryId=${countryId}`,
+  'GET',
+  { 'Accept-Language': language },
+);
 
 const CountryPage = () => {
   const { countryId } = useParams();
   const [language] = useLanguage();
-  const [countryObj, setCountryObj] = React.useState(null);
+  const [componentStatus, setComponentStatus] = React.useState('loading');
+  const [backendData, setBackendData] = React.useState(null);
 
   React.useEffect(() => {
-    getCountryObj(countryId, language)
-      .then(setCountryObj);
+    getCountry(countryId, language)
+      .then(({ status, data }) => {
+        setBackendData(data);
+        setComponentStatus(status);
+      });
   }, [language]);
 
-  return (
-    <>
-      {countryObj ? (
-        <>
-          <p>Data:</p>
-          <p>{countryObj.name}</p>
-        </>
-      ) : (
-        <div>Now Loading</div>
-      )}
-      <Link to="/">Go back</Link>
-    </>
-  );
+  // TODO: create provider component instead of this garbage
+  if (componentStatus === 'success') {
+    const { name, capital, description } = backendData;
+    return (
+      <>
+        <h3>{name}</h3>
+        <h4>{capital}</h4>
+        <p>{description}</p>
+        <Link to="/">go back</Link>
+      </>
+    );
+  }
+
+  if (componentStatus === 'error') {
+    return (
+      <>
+        <h3>Welp!</h3>
+        <h4>Something went wrong:</h4>
+        <p>{backendData}</p>
+        <Link to="/">go back</Link>
+      </>
+    );
+  }
+
+  return <div>Now loading</div>;
 };
 
 export default CountryPage;

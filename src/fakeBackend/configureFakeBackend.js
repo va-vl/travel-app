@@ -3,7 +3,7 @@
 import { getLocalStorageItem } from '../utils/localStorage';
 import fakeData from './fakeData/index';
 
-const FAKE_TIMEOUT = 1500;
+const FAKE_TIMEOUT = 100;
 const users = getLocalStorageItem('users', []);
 
 function configureFakeBackend() {
@@ -76,7 +76,10 @@ function configureFakeBackend() {
         localStorage.setItem('users', JSON.stringify(users));
 
         // respond 200 OK
-        resolve({ ok: true, text: () => Promise.resolve() });
+        resolve({
+          ok: true,
+          text: () => Promise.resolve(),
+        });
 
         return;
       }
@@ -94,7 +97,9 @@ function configureFakeBackend() {
             text: () => Promise.resolve(JSON.stringify(data)),
           });
         } else {
-          reject(new Error('Something went wrong!'));
+          const err = new Error('No such country in the database!');
+          err.status = 404;
+          reject(err);
         }
 
         return;
@@ -111,7 +116,9 @@ function configureFakeBackend() {
             text: () => Promise.resolve(JSON.stringify(data)),
           });
         } else {
-          reject(new Error('Failed to fetch countries!'));
+          const err = new Error('Failed to fetch countries!');
+          err.status = 404;
+          reject(err);
         }
 
         return;

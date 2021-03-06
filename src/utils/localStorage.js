@@ -1,6 +1,7 @@
 // localStorage hooks are based on https://usehooks.com/useLocalStorage/
 
 import { useState } from 'react';
+import LANGUAGES from '../constants/languages';
 
 function getLocalStorageItem(key, defaultValue) {
   try {
@@ -31,7 +32,7 @@ function useLocalStorage(key, defaultValue) {
 }
 
 function useLanguage() {
-  return useLocalStorage('language', 'en');
+  return useLocalStorage('language', LANGUAGES[0]);
 }
 
 export {

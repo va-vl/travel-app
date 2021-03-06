@@ -1,37 +1,56 @@
 import * as React from 'react';
 import { Link } from 'react-router-dom';
 import { useLanguage } from '../../utils/localStorage';
+import queryFakeBackend from '../../utils/api';
 
-const getCountrySummariesObj = (language) => fetch('/API_URL/summaries', {
-  method: 'GET',
-  headers: { 'Accept-Language': language },
-})
-  .then((res) => res.text())
-  .then((text) => JSON.parse(text))
-  .catch(() => null);
+const getSummaries = (language) => queryFakeBackend(
+  '/API_URL/summaries',
+  'GET',
+  { 'Accept-Language': language },
+);
 
 const MainPage = () => {
   const [language] = useLanguage();
-  const [countrySummariesObj, setCountrySummariesObj] = React.useState(null);
+  const [componentStatus, setComponentStatus] = React.useState('loading');
+  const [backendData, setBackendData] = React.useState(null);
 
   React.useEffect(() => {
-    getCountrySummariesObj(language)
-      .then(setCountrySummariesObj);
+    getSummaries(language)
+      .then(({ status, data }) => {
+        setBackendData(data);
+        setComponentStatus(status);
+      });
   }, [language]);
 
-  return countrySummariesObj ? (
-    <ul>
-      {
-        countrySummariesObj.map(({ name, capital, id }) => (
-          <div key={name}>
-            <h3>{name}</h3>
-            <h4>{capital}</h4>
-            <Link to={`/countryId=${id}`}>learn more</Link>
-          </div>
-        ))
-      }
-    </ul>
-  ) : <div>Now Loading</div>;
+  // TODO: create provider component instead of this garbage
+  if (componentStatus === 'success') {
+    return (
+      <ul>
+        {
+          backendData.map(({ name, capital, id }) => (
+            <div key={name}>
+              <h3>{name}</h3>
+              <h4>{capital}</h4>
+              <Link to={`/countryId=${id}`}>learn more</Link>
+            </div>
+          ))
+        }
+      </ul>
+    );
+  }
+
+  if (componentStatus === 'error') {
+    return (
+      <>
+        <h3>Welp!</h3>
+        <h4>Something went wrong:</h4>
+        <p>{backendData}</p>
+        <Link to="/">go back</Link>
+      </>
+    );
+  }
+
+  return <div>Now loading</div>;
 };
 
 export default MainPage;
