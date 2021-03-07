@@ -8,7 +8,6 @@ function getLocalStorageItem(key, defaultValue) {
     const item = window.localStorage.getItem(key);
     return item ? JSON.parse(item) : defaultValue;
   } catch (err) {
-    console.log(err);
     return defaultValue;
   }
 }
@@ -24,8 +23,10 @@ function useLocalStorage(key, defaultValue) {
       setStoredValue(valueToStore);
       window.localStorage.setItem(key, JSON.stringify(valueToStore));
     } catch (error) {
-      console.log(error);
+      return defaultValue;
     }
+
+    return null;
   };
 
   return [storedValue, setValue];
