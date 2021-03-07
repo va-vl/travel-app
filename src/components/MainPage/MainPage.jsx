@@ -11,24 +11,35 @@ const getSummaries = (language) => queryFakeBackend(
 
 const MainPage = () => {
   const { language, dictionary } = useLanguage();
+  const [isLoading, setIsLoading] = React.useState(true);
+  const [isError, setIsError] = React.useState(false);
+  const [isReady, setIsReady] = React.useState(false);
+  const [data, setData] = React.useState({});
 
-  const [componentStatus, setComponentStatus] = React.useState('loading');
-  const [backendData, setBackendData] = React.useState(null);
+  console.log(isLoading);
 
   React.useEffect(() => {
     getSummaries(language)
-      .then(({ status, data }) => {
-        setBackendData(data);
-        setComponentStatus(status);
+      .then(({ body }) => {
+        setData(body);
+        setIsError(false);
+        setIsLoading(false);
+        setIsReady(true);
+      })
+      .catch((err) => {
+        setData(err.message);
+        setIsLoading(false);
+        setIsReady(false);
+        setIsError(true);
       });
   }, [language]);
 
   // TODO: create provider component instead of this garbage
-  if (componentStatus === 'success') {
+  if (isReady) {
     return (
       <ul>
         {
-          backendData.map(({ name, capital, id }) => (
+          data.map(({ name, capital, id }) => (
             <div key={name}>
               <h3>{name}</h3>
               <h4>{capital}</h4>
@@ -40,12 +51,12 @@ const MainPage = () => {
     );
   }
 
-  if (componentStatus === 'error') {
+  if (isError) {
     return (
       <>
         <h3>Welp!</h3>
         <h4>Something went wrong:</h4>
-        <p>{backendData}</p>
+        <p>{data}</p>
         <Link to="/">go back</Link>
       </>
     );

@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import Header from './Header/Header';
 import MainPage from './MainPage/MainPage';
-import CountryPage from './CountryPage/CountryPage';
+import CountryPageContainer from './CountryPage/CountryPageContainer';
 import Footer from './Footer/Footer';
 
 const App = () => (
@@ -13,7 +13,7 @@ const App = () => (
         <MainPage />
       </Route>
       <Route path="/countryId=:countryId">
-        <CountryPage />
+        <CountryPageContainer />
       </Route>
       <Redirect from="*" to="/" />
     </Switch>
