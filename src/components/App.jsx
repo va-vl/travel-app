@@ -4,21 +4,26 @@ import Header from './Header/Header';
 import MainPage from './MainPage/MainPage';
 import CountryPageContainer from './CountryPage/CountryPageContainer';
 import Footer from './Footer/Footer';
+import styleCommon from '../styles/common';
 
-const App = () => (
-  <div>
-    <Header />
-    <Switch>
-      <Route exact path="/">
-        <MainPage />
-      </Route>
-      <Route path="/countryId=:countryId">
-        <CountryPageContainer />
-      </Route>
-      <Redirect from="*" to="/" />
-    </Switch>
-    <Footer />
-  </div>
-);
+const App = () => {
+  const classes = styleCommon();
+
+  return (
+    <div className={classes.root}>
+      <Header />
+      <Switch>
+        <Route exact path="/">
+          <MainPage />
+        </Route>
+        <Route path="/countryId=:countryId">
+          <CountryPageContainer />
+        </Route>
+        <Redirect from="*" to="/" />
+      </Switch>
+      <Footer />
+    </div>
+  );
+};
 
 export default App;
