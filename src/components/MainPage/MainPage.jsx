@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Link } from 'react-router-dom';
-import { useLanguage } from '../../utils/localStorage';
+import { useLanguage } from '../../contexts/LanguageContext';
 import queryFakeBackend from '../../utils/api';
 
 const getSummaries = (language) => queryFakeBackend(
@@ -10,7 +10,8 @@ const getSummaries = (language) => queryFakeBackend(
 );
 
 const MainPage = () => {
-  const [language] = useLanguage();
+  const { language, dictionary } = useLanguage();
+
   const [componentStatus, setComponentStatus] = React.useState('loading');
   const [backendData, setBackendData] = React.useState(null);
 
@@ -31,7 +32,7 @@ const MainPage = () => {
             <div key={name}>
               <h3>{name}</h3>
               <h4>{capital}</h4>
-              <Link to={`/countryId=${id}`}>learn more</Link>
+              <Link to={`/countryId=${id}`}>{dictionary.LEARN_MORE_BUTTON}</Link>
             </div>
           ))
         }

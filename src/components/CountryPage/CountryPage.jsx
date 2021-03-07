@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { useLanguage } from '../../utils/localStorage';
+import { useLanguage } from '../../contexts/LanguageContext';
 import queryFakeBackend from '../../utils/api';
 
 const getCountry = (countryId, language) => queryFakeBackend(
@@ -11,9 +11,11 @@ const getCountry = (countryId, language) => queryFakeBackend(
 
 const CountryPage = () => {
   const { countryId } = useParams();
-  const [language] = useLanguage();
+  const { language, dictionary } = useLanguage();
   const [componentStatus, setComponentStatus] = React.useState('loading');
   const [backendData, setBackendData] = React.useState(null);
+
+  console.log(dictionary);
 
   React.useEffect(() => {
     getCountry(countryId, language)
@@ -31,7 +33,7 @@ const CountryPage = () => {
         <h3>{name}</h3>
         <h4>{capital}</h4>
         <p>{description}</p>
-        <Link to="/">go back</Link>
+        <Link to="/">{dictionary.GO_BACK_BUTTON}</Link>
       </>
     );
   }
@@ -42,7 +44,7 @@ const CountryPage = () => {
         <h3>Welp!</h3>
         <h4>Something went wrong:</h4>
         <p>{backendData}</p>
-        <Link to="/">go back</Link>
+        <Link to="/">{dictionary.GO_BACK_BUTTON}</Link>
       </>
     );
   }

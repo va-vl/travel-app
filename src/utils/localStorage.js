@@ -1,8 +1,3 @@
-// localStorage hooks are based on https://usehooks.com/useLocalStorage/
-
-import { useState } from 'react';
-import LANGUAGES from '../constants/languages';
-
 function getLocalStorageItem(key, defaultValue) {
   try {
     const item = window.localStorage.getItem(key);
@@ -13,30 +8,11 @@ function getLocalStorageItem(key, defaultValue) {
   }
 }
 
-function useLocalStorage(key, defaultValue) {
-  const [storedValue, setStoredValue] = useState(() => getLocalStorageItem(key, defaultValue));
-
-  const setValue = (value) => {
-    try {
-      const valueToStore = value instanceof Function
-        ? value(storedValue)
-        : value;
-      setStoredValue(valueToStore);
-      window.localStorage.setItem(key, JSON.stringify(valueToStore));
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  return [storedValue, setValue];
-}
-
-function useLanguage() {
-  return useLocalStorage('language', LANGUAGES[0]);
+function setLocalStorageItem(key, value) {
+  window.localStorage.setItem(key, JSON.stringify(value));
 }
 
 export {
   getLocalStorageItem,
-  useLocalStorage,
-  useLanguage,
+  setLocalStorageItem,
 };

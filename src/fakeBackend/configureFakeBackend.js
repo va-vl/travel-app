@@ -3,7 +3,7 @@
 import { getLocalStorageItem } from '../utils/localStorage';
 import fakeData from './fakeData/index';
 
-const FAKE_TIMEOUT = 100;
+const FAKE_TIMEOUT = 1500;
 const users = getLocalStorageItem('users', []);
 
 function configureFakeBackend() {

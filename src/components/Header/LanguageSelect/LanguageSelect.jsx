@@ -1,11 +1,12 @@
 import * as React from 'react';
-import { useLanguage } from '../../../utils/localStorage';
-import LANGUAGES from '../../../constants/languages';
+import { useLanguage, useLanguageUpdate } from '../../../contexts/LanguageContext';
+import { languageOptions } from '../../../constants/index';
 
 const LanguageSelect = () => {
-  const [language, setLanguage] = useLanguage();
+  const { language } = useLanguage();
+  const setLanguage = useLanguageUpdate();
 
-  const handleChange = ({ target: { value } }) => setLanguage(value);
+  const handleChange = ({ target: { value } }) => { setLanguage(value); };
 
   return (
     <select
@@ -13,8 +14,8 @@ const LanguageSelect = () => {
       onChange={handleChange}
     >
       {
-        LANGUAGES.map((lang) => (
-          <option value={lang} key={lang}>{lang}</option>
+        Object.entries(languageOptions).map(([lang, name]) => (
+          <option value={lang} key={lang}>{name}</option>
         ))
       }
     </select>
