@@ -1,20 +1,14 @@
 import * as React from 'react';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
-import { useLanguage } from '../../../utils/localStorage';
-import LANGUAGES from '../../../constants/languages';
+import { useLanguage, useLanguageUpdate } from '../../../contexts/LanguageContext';
+import { languageOptions } from '../../../constants/index';
 
 const LanguageSelect = () => {
-  const [language, setLanguage] = useLanguage('en');
-  const handleChange = ({ target: { value } }) => setLanguage(value);
-  const languagesArr = LANGUAGES.map((lang) => (
-    <option
-      value={lang}
-      key={lang}
-    >
-      {lang}
-    </option>
-  ));
+  const { language } = useLanguage();
+  const setLanguage = useLanguageUpdate();
+
+  const handleChange = ({ target: { value } }) => { setLanguage(value); };
 
   return (
     <FormControl
@@ -27,7 +21,9 @@ const LanguageSelect = () => {
         value={language}
         onChange={handleChange}
       >
-        {languagesArr}
+        {Object.entries(languageOptions).map(([lang, name]) => (
+          <option value={lang} key={lang}>{name}</option>
+        ))}
       </Select>
     </FormControl>
   );

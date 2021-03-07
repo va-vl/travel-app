@@ -4,18 +4,7 @@ const queryFakeBackend = (url, method, headers) => fetch(url, {
 })
   .then((res) => res.text())
   .then((text) => ({
-    status: 'success',
-    data: JSON.parse(text),
-  }))
-  .catch((err) => {
-    if (err.status === 404) {
-      return {
-        status: 'error',
-        data: err.message,
-      };
-    }
-
-    throw err;
-  });
+    body: JSON.parse(text),
+  }));
 
 export default queryFakeBackend;
