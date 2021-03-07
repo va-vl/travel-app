@@ -2,18 +2,21 @@ import * as React from 'react';
 import { useLocation } from 'react-router-dom';
 import SearchBar from './SearchBar/SearchBar';
 import LanguageSelect from './LanguageSelect/LanguageSelect';
-import styleHeader from '../../styles/header';
+import Logo from './Logo/Logo';
+import styles from './styles/styles';
 
 const Header = () => {
   const { pathname } = useLocation();
-  const classes = styleHeader();
+  const classes = styles();
 
   return (
     <header className={classes.root}>
-      <p>logo</p>
-      {pathname === '/'
-        ? <SearchBar />
-        : null}
+      <Logo />
+      {
+        pathname === '/'
+          ? <SearchBar />
+          : null
+      }
       <LanguageSelect />
     </header>
   );

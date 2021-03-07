@@ -17,7 +17,10 @@ const LanguageSelect = () => {
   ));
 
   return (
-    <FormControl variant="outlined">
+    <FormControl
+      variant="outlined"
+      size="small"
+    >
       <Select
         native
         variant="outlined"
