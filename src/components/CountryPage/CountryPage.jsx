@@ -4,7 +4,9 @@ import { Link } from 'react-router-dom';
 import withRenderControl from '../_common/withRenderControl';
 import { useLanguage } from '../../contexts/LanguageContext';
 
-const CountryPage = ({ name, capital, description }) => {
+const CountryPage = ({
+  name, capital, description, image,
+}) => {
   const { dictionary } = useLanguage();
 
   return (
@@ -12,6 +14,7 @@ const CountryPage = ({ name, capital, description }) => {
       <h3>{name}</h3>
       <h4>{capital}</h4>
       <p>{description}</p>
+      <img alt={name} src={image} />
       <Link to="/">{dictionary.GO_BACK_BUTTON}</Link>
     </>
   );
@@ -21,6 +24,7 @@ CountryPage.propTypes = {
   name: PropTypes.string.isRequired,
   capital: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
+  image: PropTypes.string.isRequired,
 };
 
 export default withRenderControl(CountryPage, {
