@@ -1,13 +1,11 @@
 import { makeStyles } from '@material-ui/core';
+import STYLE_CONSTANTS from '../../../styles/STYLE_CONSTANTS';
 
 const styles = makeStyles({
   root: {
-    margin: '0 auto',
-    padding: '0 40px',
-
+    height: `${3 * STYLE_CONSTANTS.unit}px`,
     display: 'flex',
-    flexDirection: 'column',
-    maxWidth: '1280px',
+    alignItems: 'center',
   },
 });
 
