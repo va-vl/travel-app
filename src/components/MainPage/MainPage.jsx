@@ -33,7 +33,6 @@ const MainPage = () => {
 
   // TODO: create provider component instead of this garbage
   if (isReady) {
-    console.log(data);
     const cardsArr = data.map(({ name, capital, id }) => (
       <Link
         to={`/countryId=${id}`}
