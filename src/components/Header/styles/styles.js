@@ -1,7 +1,9 @@
 import { makeStyles } from '@material-ui/core';
+import STYLE_CONSTANTS from '../../../styles/STYLE_CONSTANTS';
 
 const styles = makeStyles({
   root: {
+    marginBottom: `${2 * STYLE_CONSTANTS.unit}px`,
     display: 'flex',
     justifyContent: 'space-between',
     alignItems: 'center',
