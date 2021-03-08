@@ -7,7 +7,7 @@ const Logo = () => (
     <img
       src={logo}
       alt="logo"
-      width="40"
+      width="50"
       className="logo"
     />
   </Link>

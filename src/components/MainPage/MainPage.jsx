@@ -32,15 +32,15 @@ const MainPage = () => {
   }, [language]);
 
   // TODO: create provider component instead of this garbage
-  // TODO: reduce images sizes for faster loading
   if (isReady) {
+    console.log(data);
     const cardsArr = data.map(({ name, capital, id }) => (
       <Link
         to={`/countryId=${id}`}
         key={name}
         className="card"
         style={{
-          backgroundImage: `url("/images/${id}.png")`,
+          backgroundImage: `url("/src/assets/images/${id}/1.png")`,
         }}
       >
         <h3>{name}</h3>

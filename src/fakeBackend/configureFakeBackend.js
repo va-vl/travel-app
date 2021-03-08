@@ -85,7 +85,7 @@ function configureFakeBackend() {
       }
 
       // get specific country data
-      if (url.match(/\/countryId=\d+$/) && opts.method === 'GET') {
+      if (url.match(/\/countryId=\w+$/) && opts.method === 'GET') {
         const id = url.split('=').pop();
 
         const { 'Accept-Language': language } = opts.headers;
