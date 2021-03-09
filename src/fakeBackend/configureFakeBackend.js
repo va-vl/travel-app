@@ -97,16 +97,22 @@ function configureFakeBackend() {
             name,
             capital,
             description,
+            sights: sightsText,
           } = data;
 
           const {
-            [id]: country,
+            [id]: {
+              country,
+              sights: sightsImages,
+            },
           } = fakeAssets;
+
+          const sights = sightsText.map((obj) => ({ ...obj, image: sightsImages[obj.id] }));
 
           resolve({
             ok: true,
             text: () => Promise.resolve(JSON.stringify({
-              name, capital, description, country,
+              name, capital, description, image: country, sights,
             })),
           });
         } else {
