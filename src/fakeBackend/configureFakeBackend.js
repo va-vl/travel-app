@@ -1,7 +1,8 @@
 // fake backend inspired by
 // https://jasonwatmore.com/post/2017/09/16/react-redux-user-registration-and-login-tutorial-example
 import { getLocalStorageItem } from '../utils/localStorage';
-import fakeData from './fakeData/index';
+import * as fakeData from './fakeData/index';
+import * as fakeAssets from './fakeAssets/index';
 
 const FAKE_TIMEOUT = 1500;
 const users = getLocalStorageItem('users', []);
@@ -92,9 +93,27 @@ function configureFakeBackend() {
         const data = fakeData[language].find((obj) => obj.id === id);
 
         if (data) {
+          const {
+            name,
+            capital,
+            description,
+            sights: sightsText,
+          } = data;
+
+          const {
+            [id]: {
+              country,
+              sights: sightsImages,
+            },
+          } = fakeAssets;
+
+          const sights = sightsText.map((obj) => ({ ...obj, image: sightsImages[obj.id] }));
+
           resolve({
             ok: true,
-            text: () => Promise.resolve(JSON.stringify(data)),
+            text: () => Promise.resolve(JSON.stringify({
+              name, capital, description, image: country, sights,
+            })),
           });
         } else {
           const err = new Error('No such country in the database!');
@@ -108,7 +127,12 @@ function configureFakeBackend() {
       // get country summaries
       if (url.endsWith('/summaries') && opts.method === 'GET') {
         const { 'Accept-Language': language } = opts.headers;
-        const data = fakeData[language].map(({ name, capital, id }) => ({ name, capital, id }));
+
+        const data = fakeData[language].map(({
+          name, capital, id,
+        }) => ({
+          name, capital, id, card: fakeAssets[id].card,
+        }));
 
         if (data) {
           resolve({

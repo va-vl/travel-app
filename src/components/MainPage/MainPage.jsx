@@ -33,13 +33,15 @@ const MainPage = () => {
 
   // TODO: create provider component instead of this garbage
   if (isReady) {
-    const cardsArr = data.map(({ name, capital, id }) => (
+    const cardsArr = data.map(({
+      name, capital, id, card,
+    }) => (
       <Link
         to={`/countryId=${id}`}
         key={name}
         className="card"
         style={{
-          backgroundImage: `url("/src/assets/images/${id}/1.png")`,
+          backgroundImage: `url(${card})`,
         }}
       >
         <h3>{name}</h3>
