@@ -7,13 +7,15 @@ import lubartscastle from './lubartscastle.jpg';
 import lvivoperatheatre from './lvivoperatheatre.jpg';
 import saintsophiascathedral from './saintsophiascathedral.jpg';
 
-export {
+export default {
   card,
   country,
-  arboretumoleksandriya,
-  housewithchimaeras,
-  kyivpechersklavra,
-  lubartscastle,
-  lvivoperatheatre,
-  saintsophiascathedral,
+  sights: {
+    arboretumoleksandriya,
+    housewithchimaeras,
+    kyivpechersklavra,
+    lubartscastle,
+    lvivoperatheatre,
+    saintsophiascathedral,
+  },
 };

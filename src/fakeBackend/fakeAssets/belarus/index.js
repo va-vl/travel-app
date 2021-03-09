@@ -7,13 +7,15 @@ import nesvizhcastle from './nesvizhcastle.jpg';
 import saintssimonandhelena from './saintssimonandhelena.jpg';
 import victorysquare from './victorysquare.jpg';
 
-export {
+export default {
   card,
   country,
-  belarustheatre,
-  lidacastle,
-  mircastle,
-  nesvizhcastle,
-  saintssimonandhelena,
-  victorysquare,
+  sights: {
+    belarustheatre,
+    lidacastle,
+    mircastle,
+    nesvizhcastle,
+    saintssimonandhelena,
+    victorysquare,
+  },
 };

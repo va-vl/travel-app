@@ -1,11 +1,11 @@
-import * as belarus from './belarus/index';
-import * as france from './france/index';
-import * as germany from './germany/index';
-import * as kazakhstan from './kazakhstan/index';
-import * as poland from './poland/index';
+import belarus from './belarus/index';
+import france from './france/index';
+import germany from './germany/index';
+import kazakhstan from './kazakhstan/index';
+import poland from './poland/index';
 import russia from './russia/index';
-import * as uk from './uk/index';
-import * as ukraine from './ukraine/index';
+import uk from './uk/index';
+import ukraine from './ukraine/index';
 
 export {
   belarus,
