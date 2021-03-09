@@ -39,7 +39,7 @@ const MainPage = () => {
         key={name}
         className="card"
         style={{
-          backgroundImage: `url("/src/assets/images/${id}/1.png")`,
+          backgroundImage: `url('/assets/images/${id}/1.png')`,
         }}
       >
         <h3>{name}</h3>

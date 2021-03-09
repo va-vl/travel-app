@@ -22,7 +22,7 @@ const Footer = () => {
       data-title={dev}
     >
       <img
-        src="/icons/github.svg"
+        src="/assets/icons/github.svg"
         alt="github-logo"
         width="30"
       />
@@ -39,7 +39,7 @@ const Footer = () => {
           className="rss-logo"
         >
           <img
-            src="/icons/rolling-scopes.svg"
+            src="/assets/icons/rolling-scopes.svg"
             alt="RSSchool-logo"
             width="75"
           />
