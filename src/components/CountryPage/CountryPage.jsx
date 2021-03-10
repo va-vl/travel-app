@@ -1,33 +1,63 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import ImageGallery from 'react-image-gallery';
 import withRenderControl from '../_common/withRenderControl';
 import { useLanguage } from '../../contexts/LanguageContext';
+import stylesCommon from '../../styles/common';
+import styles from './styles/styles';
 
 const CountryPage = ({
   name, capital, description, image, sights,
 }) => {
   const { dictionary } = useLanguage();
+  const classesCommon = stylesCommon();
+  const classes = styles();
+  const titleAlignLeft = `${classesCommon.title} ${classesCommon.alignLeft}`;
+
+  const goBack = (
+    <Link
+      to="/"
+      className={classes.link}
+    >
+      {dictionary.GO_BACK_BUTTON}
+    </Link>
+  );
+
+  const images = sights.map((item) => ({
+    original: item.image,
+    thumbnail: item.image,
+    description: item.description,
+  }));
 
   return (
-    <>
-      <h3>{name}</h3>
-      <h4>{capital}</h4>
-      <p>{description}</p>
-      <img alt={name} src={image} />
-      <ul>
-        {
-          sights.map((sight) => (
-            <li key={sight.name}>
-              <p>{sight.name}</p>
-              <p>{sight.description}</p>
-              <img alt="sight" src={sight.image} />
-            </li>
-          ))
-        }
-      </ul>
-      <Link to="/">{dictionary.GO_BACK_BUTTON}</Link>
-    </>
+    <div className={classes.root}>
+      <h2 className={titleAlignLeft}>
+        {`${name}, ${capital}`}
+      </h2>
+
+      <div className="main-content">
+
+        <div className="info">
+          <p className="description">{description}</p>
+          {goBack}
+          <img src={image} alt="" />
+        </div>
+
+        <aside className="aside">
+          <div>widget1</div>
+          <div>widget2</div>
+          <div>widget3</div>
+        </aside>
+
+      </div>
+
+      <ImageGallery
+        items={images}
+        className="image-gallery"
+      />
+
+    </div>
   );
 };
 

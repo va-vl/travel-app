@@ -38,6 +38,7 @@ const CountryPageContainer = () => {
     isLoading,
     isError,
     isReady,
+    countryId,
     ...data,
   });
 };

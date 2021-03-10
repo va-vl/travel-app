@@ -89,7 +89,7 @@ export default [
       {
         id: 'victorysquare',
         name: 'Victory Square',
-        description: 'Ыquare in the centre of the City of Minsk located at the crossing of Independence Avenue and Zakharau Street. Victory Square is a key landmark for Belarus like Red Square in Moscow for Russia.',
+        description: 'Square in the centre of the City of Minsk located at the crossing of Independence Avenue and Zakharau Street. Victory Square is a key landmark for Belarus like Red Square in Moscow for Russia.',
       },
       {
         id: 'nesvizhcastle',

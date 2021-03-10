@@ -1,17 +1,16 @@
 import { makeStyles } from '@material-ui/core';
-import STYLE_CONSTANTS from '../../../styles/STYLE_CONSTANTS';
 
 const styles = makeStyles({
   root: {
-    marginBottom: `${2 * STYLE_CONSTANTS.unit}px`,
-    paddingTop: `${2 * STYLE_CONSTANTS.unit}px`,
+    marginBottom: '2rem',
+    paddingTop: '2rem',
     display: 'flex',
     justifyContent: 'space-between',
     alignItems: 'center',
 
     '& .search': {
       width: '100%',
-      maxWidth: '600px',
+      maxWidth: '30rem',
 
       '& .searchIcon': {
         cursor: 'pointer',
