@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { useLanguage } from '../../contexts/LanguageContext';
 import queryFakeBackend from '../../utils/api';
 import styles from './styles/styles';
+import stylesCommon from '../../styles/common';
 
 const getSummaries = (language) => queryFakeBackend(
   '/API_URL/summaries',
@@ -16,6 +17,7 @@ const MainPage = () => {
   const [isReady, setIsReady] = React.useState(false);
   const [data, setData] = React.useState({});
   const classes = styles();
+  const classesCommon = stylesCommon();
 
   React.useEffect(() => {
     getSummaries(language)
@@ -49,7 +51,16 @@ const MainPage = () => {
 
     return (
       <div className={classes.root}>
-        <h2 className="title">Our proposals</h2>
+        <h2
+          className={classesCommon.title}
+          style={{
+            alignSelf: 'flex-end',
+            textAlign: 'right',
+            paddingLeft: '6rem',
+          }}
+        >
+          Our proposals
+        </h2>
         <div className="cards-container">
           {cardsArr}
         </div>

@@ -1,9 +1,8 @@
 import { makeStyles } from '@material-ui/core';
-import STYLE_CONSTANTS from '../../../styles/STYLE_CONSTANTS';
 
 const styles = makeStyles({
   root: {
-    height: `${4 * STYLE_CONSTANTS.unit}px`,
+    height: '4rem',
     display: 'flex',
     justifyContent: 'space-between',
     alignItems: 'center',
@@ -20,7 +19,7 @@ const styles = makeStyles({
         '&:after': {
           content: 'attr(data-title)',
           position: 'absolute',
-          top: '-20px',
+          top: '-1.3rem',
           left: '50%',
           transform: 'translateX(-50%)',
         },
@@ -33,11 +32,11 @@ const styles = makeStyles({
     },
 
     '& .rss-logo': {
-      marginRight: `${0.8 * STYLE_CONSTANTS.unit}px`,
+      marginRight: '0.8rem',
     },
 
     '& .github-logo': {
-      marginRight: `${0.8 * STYLE_CONSTANTS.unit}px`,
+      marginRight: '0.8rem',
 
       '&:last-child': {
         marginRight: '0',
