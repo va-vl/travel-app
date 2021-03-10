@@ -1,5 +1,5 @@
 import { makeStyles } from '@material-ui/core';
-import { flexColumn } from './stylesUtils';
+import flexColumn from './stylesUtils';
 
 const styles = makeStyles({
   root: {
@@ -16,6 +16,17 @@ const styles = makeStyles({
 
     fontSize: '2rem',
     borderBottom: '2px solid black',
+  },
+
+  alignLeft: {
+    alignSelf: 'flex-start',
+    paddingRight: '6rem',
+  },
+
+  alignRight: {
+    alignSelf: 'flex-end',
+    paddingLeft: '6rem',
+    textAlign: 'right',
   },
 });
 

@@ -5,14 +5,14 @@ import withRenderControl from '../_common/withRenderControl';
 import { useLanguage } from '../../contexts/LanguageContext';
 import stylesCommon from '../../styles/common';
 import styles from './styles/styles';
-import { align } from '../../styles/stylesUtils';
 
 const CountryPage = ({
-  countryId, name, capital, description, image, sights,
+  name, capital, description, image, sights,
 }) => {
   const { dictionary } = useLanguage();
   const classesCommon = stylesCommon();
   const classes = styles();
+  const titleAlignLeft = `${classesCommon.title} ${classesCommon.alignLeft}`;
 
   const goBack = (
     <Link
@@ -25,10 +25,7 @@ const CountryPage = ({
 
   return (
     <div className={classes.root}>
-      <h2
-        className={classesCommon.title}
-        style={{ ...align('left') }}
-      >
+      <h2 className={titleAlignLeft}>
         {`${name}, ${capital}`}
       </h2>
 
@@ -37,7 +34,7 @@ const CountryPage = ({
         <div className="info">
           <p className="description">{description}</p>
           {goBack}
-          <img src={`../../assets/images/${countryId}/1.png`} alt="" />
+          <img src={image} alt="" />
         </div>
 
         <aside className="aside">
@@ -65,7 +62,6 @@ const CountryPage = ({
 };
 
 CountryPage.propTypes = {
-  countryId: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   capital: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,

@@ -4,7 +4,6 @@ import { useLanguage } from '../../contexts/LanguageContext';
 import queryFakeBackend from '../../utils/api';
 import styles from './styles/styles';
 import stylesCommon from '../../styles/common';
-import { align } from '../../styles/stylesUtils';
 
 const getSummaries = (language) => queryFakeBackend(
   '/API_URL/summaries',
@@ -44,7 +43,7 @@ const MainPage = () => {
         key={name}
         className="card"
         style={{
-          backgroundImage: `url('/assets/images/${id}/1.png')`,
+          backgroundImage: `url('${card}')`,
         }}
       >
         <h3>{name}</h3>
@@ -52,12 +51,11 @@ const MainPage = () => {
       </Link>
     ));
 
+    const titleAlignRight = `${classesCommon.title} ${classesCommon.alignRight}`;
+
     return (
       <div className={classes.root}>
-        <h2
-          className={classesCommon.title}
-          style={{ ...align('right') }}
-        >
+        <h2 className={titleAlignRight}>
           Our proposals
         </h2>
         <div className="cards-container">
