@@ -1,9 +1,9 @@
 import { makeStyles } from '@material-ui/core';
-import containerColumn from '../../../styles/stylesConstants';
+import { flexColumn } from '../../../styles/stylesUtils';
 
 const styles = makeStyles({
   root: {
-    ...containerColumn,
+    ...flexColumn('3rem'),
 
     '& .cards-container': {
       display: 'flex',
@@ -15,9 +15,8 @@ const styles = makeStyles({
         width: '280px',
         height: '300px',
 
-        display: 'flex',
+        ...flexColumn(),
         flex: '1 1 auto',
-        flexDirection: 'column',
         justifyContent: 'flex-end',
 
         backgroundSize: 'cover',

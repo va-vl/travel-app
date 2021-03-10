@@ -5,6 +5,7 @@ import withRenderControl from '../_common/withRenderControl';
 import { useLanguage } from '../../contexts/LanguageContext';
 import stylesCommon from '../../styles/common';
 import styles from './styles/styles';
+import { align } from '../../styles/stylesUtils';
 
 const CountryPage = ({
   countryId,
@@ -29,10 +30,7 @@ const CountryPage = ({
     <div className={classes.root}>
       <h2
         className={classesCommon.title}
-        style={{
-          alignSelf: 'flex-start',
-          paddingRight: '6rem',
-        }}
+        style={{ ...align('left') }}
       >
         {`${name}, ${capital}`}
       </h2>

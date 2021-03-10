@@ -4,6 +4,7 @@ import { useLanguage } from '../../contexts/LanguageContext';
 import queryFakeBackend from '../../utils/api';
 import styles from './styles/styles';
 import stylesCommon from '../../styles/common';
+import { align } from '../../styles/stylesUtils';
 
 const getSummaries = (language) => queryFakeBackend(
   '/API_URL/summaries',
@@ -53,11 +54,7 @@ const MainPage = () => {
       <div className={classes.root}>
         <h2
           className={classesCommon.title}
-          style={{
-            alignSelf: 'flex-end',
-            textAlign: 'right',
-            paddingLeft: '6rem',
-          }}
+          style={{ ...align('right') }}
         >
           Our proposals
         </h2>

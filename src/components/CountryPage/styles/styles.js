@@ -1,5 +1,5 @@
 import { makeStyles } from '@material-ui/core';
-import containerColumn from '../../../styles/stylesConstants';
+import { flexColumn } from '../../../styles/stylesUtils';
 
 const styles = makeStyles({
   link: {
@@ -8,7 +8,7 @@ const styles = makeStyles({
   },
 
   root: {
-    ...containerColumn,
+    ...flexColumn(),
 
     '& .main-content': {
       display: 'flex',

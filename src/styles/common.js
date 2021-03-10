@@ -1,12 +1,12 @@
 import { makeStyles } from '@material-ui/core';
+import { flexColumn } from './stylesUtils';
 
 const styles = makeStyles({
   root: {
     margin: '0 auto',
     padding: '0 40px',
 
-    display: 'flex',
-    flexDirection: 'column',
+    ...flexColumn(),
     maxWidth: '1280px',
   },
 
