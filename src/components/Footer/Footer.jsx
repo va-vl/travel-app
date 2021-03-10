@@ -1,5 +1,7 @@
 import * as React from 'react';
 import styles from './styles/styles';
+import logoGithub from '../../assets/logo-github.svg';
+import logoRollingScopes from '../../assets/logo-rolling-scopes.svg';
 
 const urlRss = 'https://rs.school/js/';
 const urlGithubPrefix = 'https://github.com/';
@@ -22,7 +24,7 @@ const Footer = () => {
       data-title={dev}
     >
       <img
-        src="/assets/icons/github.svg"
+        src={logoGithub}
         alt="github-logo"
         width="30"
       />
@@ -39,7 +41,7 @@ const Footer = () => {
           className="rss-logo"
         >
           <img
-            src="/assets/icons/rolling-scopes.svg"
+            src={logoRollingScopes}
             alt="RSSchool-logo"
             width="75"
           />

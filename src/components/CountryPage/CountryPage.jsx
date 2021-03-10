@@ -8,10 +8,7 @@ import styles from './styles/styles';
 import { align } from '../../styles/stylesUtils';
 
 const CountryPage = ({
-  countryId,
-  name,
-  capital,
-  description,
+  countryId, name, capital, description, image, sights,
 }) => {
   const { dictionary } = useLanguage();
   const classesCommon = stylesCommon();
@@ -51,6 +48,18 @@ const CountryPage = ({
 
       </div>
 
+      <ul>
+        {
+          sights.map((sight) => (
+            <li key={sight.name}>
+              <p>{sight.name}</p>
+              <p>{sight.description}</p>
+              <img alt="sight" src={sight.image} />
+            </li>
+          ))
+        }
+      </ul>
+
     </div>
   );
 };
@@ -60,6 +69,12 @@ CountryPage.propTypes = {
   name: PropTypes.string.isRequired,
   capital: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
+  image: PropTypes.string.isRequired,
+  sights: PropTypes.arrayOf(PropTypes.shape({
+    name: PropTypes.string,
+    description: PropTypes.string,
+    image: PropTypes.string,
+  })).isRequired,
 };
 
 export default withRenderControl(CountryPage, {
