@@ -1,18 +1,22 @@
 import * as React from 'react';
 import { useParams } from 'react-router-dom';
-import queryFakeBackend from '../../utils/api';
-import CountryPage from './CountryPage';
-import { useLanguage } from '../../contexts/LanguageContext';
+import queryFakeBackend from '../../../utils/api';
+import CountryInfo from './CountryInfo';
+import { useLanguage } from '../../../contexts/LanguageContext';
+import { api } from '../../../constants/index';
+
+const { BACKEND_COUNTRY_INFO } = api;
 
 const getCountry = (countryId, language) => queryFakeBackend(
-  `/API_URL/countryId=${countryId}`,
+  `${BACKEND_COUNTRY_INFO}${countryId}`,
   'GET',
   { 'Accept-Language': language },
 );
 
-const CountryPageContainer = () => {
+const CountryInfoContainer = () => {
   const { countryId } = useParams();
   const { language } = useLanguage();
+
   const [isLoading, setIsLoading] = React.useState(false);
   const [isError, setIsError] = React.useState(false);
   const [isReady, setIsReady] = React.useState(false);
@@ -34,7 +38,7 @@ const CountryPageContainer = () => {
       });
   }, [language]);
 
-  return CountryPage({
+  return CountryInfo({
     isLoading,
     isError,
     isReady,
@@ -42,4 +46,4 @@ const CountryPageContainer = () => {
   });
 };
 
-export default CountryPageContainer;
+export default CountryInfoContainer;

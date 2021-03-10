@@ -85,8 +85,8 @@ function configureFakeBackend() {
         return;
       }
 
-      // get specific country data
-      if (url.match(/\/countryId=\w+$/) && opts.method === 'GET') {
+      // get country info (no sights)
+      if (url.match(/\/countryInfoId=\w+$/) && opts.method === 'GET') {
         const id = url.split('=').pop();
 
         const { 'Accept-Language': language } = opts.headers;
@@ -97,26 +97,45 @@ function configureFakeBackend() {
             name,
             capital,
             description,
-            sights: sightsText,
           } = data;
 
-          const {
-            [id]: {
-              country,
-              sights: sightsImages,
-            },
-          } = fakeAssets;
-
-          const sights = sightsText.map((obj) => ({ ...obj, image: sightsImages[obj.id] }));
+          const { [id]: { country } } = fakeAssets;
 
           resolve({
             ok: true,
             text: () => Promise.resolve(JSON.stringify({
-              name, capital, description, image: country, sights,
+              name, capital, description, image: country,
             })),
           });
         } else {
           const err = new Error('No such country in the database!');
+          err.status = 404;
+          reject(err);
+        }
+
+        return;
+      }
+
+      // get country sights
+      if (url.match(/\/countrySightsId=\w+$/) && opts.method === 'GET') {
+        const id = url.split('=').pop();
+
+        const { 'Accept-Language': language } = opts.headers;
+        const data = fakeData[language].find((obj) => obj.id === id);
+
+        if (data) {
+          const { sights: sightsText } = data;
+          const { [id]: { sights: sightsImages } } = fakeAssets;
+          const sights = sightsText.map((obj) => ({ ...obj, image: sightsImages[obj.id] }));
+
+          console.log(sights);
+
+          resolve({
+            ok: true,
+            text: () => Promise.resolve(JSON.stringify({ sights })),
+          });
+        } else {
+          const err = new Error('No sights in the database!');
           err.status = 404;
           reject(err);
         }

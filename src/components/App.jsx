@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import Header from './Header/Header';
 import MainPage from './MainPage/MainPage';
-import CountryPageContainer from './CountryPage/CountryPageContainer';
+import CountryPage from './CountryPage/CountryPage';
 import Footer from './Footer/Footer';
 import styleCommon from '../styles/common';
 
@@ -17,7 +17,7 @@ const App = () => {
           <MainPage />
         </Route>
         <Route path="/countryId=:countryId">
-          <CountryPageContainer />
+          <CountryPage />
         </Route>
         <Redirect from="*" to="/" />
       </Switch>

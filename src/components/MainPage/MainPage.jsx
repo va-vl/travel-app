@@ -2,16 +2,19 @@ import * as React from 'react';
 import { Link } from 'react-router-dom';
 import { useLanguage } from '../../contexts/LanguageContext';
 import queryFakeBackend from '../../utils/api';
+import { api } from '../../constants/index';
 import styles from './styles/styles';
 
+const { BACKEND_SUMMARIES } = api;
+
 const getSummaries = (language) => queryFakeBackend(
-  '/API_URL/summaries',
+  BACKEND_SUMMARIES,
   'GET',
   { 'Accept-Language': language },
 );
 
 const MainPage = () => {
-  const { language } = useLanguage();
+  const { language, dictionary } = useLanguage();
   const [isError, setIsError] = React.useState(false);
   const [isReady, setIsReady] = React.useState(false);
   const [data, setData] = React.useState({});
@@ -51,7 +54,7 @@ const MainPage = () => {
 
     return (
       <div className={classes.root}>
-        <h2 className="title">Our proposals</h2>
+        <h2 className="title">{dictionary.OUR_PROPOSALS}</h2>
         <div className="cards-container">
           {cardsArr}
         </div>
