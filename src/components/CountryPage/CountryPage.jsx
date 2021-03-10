@@ -1,6 +1,7 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import ImageGallery from 'react-image-gallery';
 import withRenderControl from '../_common/withRenderControl';
 import { useLanguage } from '../../contexts/LanguageContext';
 import stylesCommon from '../../styles/common';
@@ -22,6 +23,12 @@ const CountryPage = ({
       {dictionary.GO_BACK_BUTTON}
     </Link>
   );
+
+  const images = sights.map((item) => ({
+    original: item.image,
+    thumbnail: item.image,
+    description: item.description,
+  }));
 
   return (
     <div className={classes.root}>
@@ -45,17 +52,10 @@ const CountryPage = ({
 
       </div>
 
-      <ul>
-        {
-          sights.map((sight) => (
-            <li key={sight.name}>
-              <p>{sight.name}</p>
-              <p>{sight.description}</p>
-              <img alt="sight" src={sight.image} />
-            </li>
-          ))
-        }
-      </ul>
+      <ImageGallery
+        items={images}
+        className="image-gallery"
+      />
 
     </div>
   );

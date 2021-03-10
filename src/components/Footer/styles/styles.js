@@ -2,7 +2,7 @@ import { makeStyles } from '@material-ui/core';
 
 const styles = makeStyles({
   root: {
-    height: '4rem',
+    height: '5rem',
     display: 'flex',
     justifyContent: 'space-between',
     alignItems: 'center',

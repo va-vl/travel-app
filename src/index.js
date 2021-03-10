@@ -5,7 +5,7 @@ import App from './components/App';
 import { LanguageProvider } from './contexts/LanguageContext';
 import '@fontsource/roboto';
 import './index.css';
-
+import 'react-image-gallery/styles/css/image-gallery.css';
 import configureFakeBackend from './fakeBackend/configureFakeBackend';
 
 configureFakeBackend();
