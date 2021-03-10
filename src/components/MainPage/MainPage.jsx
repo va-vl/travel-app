@@ -4,6 +4,7 @@ import { useLanguage } from '../../contexts/LanguageContext';
 import queryFakeBackend from '../../utils/api';
 import { api } from '../../constants/index';
 import styles from './styles/styles';
+import stylesCommon from '../../styles/common';
 
 const { BACKEND_SUMMARIES } = api;
 
@@ -19,6 +20,7 @@ const MainPage = () => {
   const [isReady, setIsReady] = React.useState(false);
   const [data, setData] = React.useState({});
   const classes = styles();
+  const classesCommon = stylesCommon();
 
   React.useEffect(() => {
     getSummaries(language)
@@ -44,7 +46,7 @@ const MainPage = () => {
         key={name}
         className="card"
         style={{
-          backgroundImage: `url(${card})`,
+          backgroundImage: `url('${card}')`,
         }}
       >
         <h3>{name}</h3>
@@ -52,9 +54,11 @@ const MainPage = () => {
       </Link>
     ));
 
+    const titleAlignRight = `${classesCommon.title} ${classesCommon.alignRight}`;
+
     return (
       <div className={classes.root}>
-        <h2 className="title">{dictionary.OUR_PROPOSALS}</h2>
+        <h2 className={titleAlignRight}>{dictionary.OUR_PROPOSALS}</h2>
         <div className="cards-container">
           {cardsArr}
         </div>

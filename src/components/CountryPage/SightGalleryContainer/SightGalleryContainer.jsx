@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { useParams } from 'react-router-dom';
 import queryFakeBackend from '../../../utils/api';
-import SightList from './SightList';
+import SightGallery from './SightGallery';
 import { useLanguage } from '../../../contexts/LanguageContext';
 import { api } from '../../../constants/index';
 
@@ -13,7 +13,7 @@ const getSights = (countryId, language) => queryFakeBackend(
   { 'Accept-Language': language },
 );
 
-const SightListContainer = () => {
+const SightGalleryContainer = () => {
   const { countryId } = useParams();
   const { language } = useLanguage();
 
@@ -38,7 +38,7 @@ const SightListContainer = () => {
       });
   }, [language]);
 
-  return SightList({
+  return SightGallery({
     isLoading,
     isError,
     isReady,
@@ -46,4 +46,4 @@ const SightListContainer = () => {
   });
 };
 
-export default SightListContainer;
+export default SightGalleryContainer;

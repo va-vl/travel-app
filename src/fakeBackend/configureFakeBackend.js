@@ -128,8 +128,6 @@ function configureFakeBackend() {
           const { [id]: { sights: sightsImages } } = fakeAssets;
           const sights = sightsText.map((obj) => ({ ...obj, image: sightsImages[obj.id] }));
 
-          console.log(sights);
-
           resolve({
             ok: true,
             text: () => Promise.resolve(JSON.stringify({ sights })),

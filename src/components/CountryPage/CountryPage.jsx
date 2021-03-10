@@ -1,17 +1,17 @@
 import * as React from 'react';
-import { Link } from 'react-router-dom';
 import CountryInfoContainer from './CountryInfo/CountryInfoContainer';
-import SightListContainer from './SightList/SightListContainer';
-import { useLanguage } from '../../contexts/LanguageContext';
+import SightGallerytContainer from './SightGalleryContainer/SightGalleryContainer';
+import Widgets from './Widgets/Widgets';
+import styles from './styles/styles';
 
 const CountryPage = () => {
-  const { dictionary } = useLanguage();
+  const classes = styles();
 
   return (
-    <main>
+    <main className={classes.root}>
       <CountryInfoContainer />
-      <SightListContainer />
-      <Link to="/">{dictionary.GO_BACK_BUTTON}</Link>
+      <Widgets />
+      <SightGallerytContainer />
     </main>
   );
 };
