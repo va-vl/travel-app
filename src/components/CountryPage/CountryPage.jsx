@@ -8,9 +8,10 @@ import stylesCommon from '../../styles/common';
 import styles from './styles/styles';
 import DateAndTime from './widgets/DateAndTime';
 import Weather from './widgets/Weather';
+import Currency from './widgets/Currency';
 
 const CountryPage = ({
-  name, capital, capitalEn, description, image, sights, timeZone,
+  name, capital, capitalEn, description, image, sights, timeZone, countryCurrency,
 }) => {
   const { dictionary, language } = useLanguage();
   const classesCommon = stylesCommon();
@@ -52,7 +53,7 @@ const CountryPage = ({
             capitalEn={capitalEn}
             language={language}
           />
-          <div>widget3</div>
+          <Currency countryCurrency={countryCurrency} />
         </aside>
 
       </div>
@@ -78,6 +79,7 @@ CountryPage.propTypes = {
     image: PropTypes.string,
   })).isRequired,
   timeZone: PropTypes.number.isRequired,
+  countryCurrency: PropTypes.string.isRequired,
 };
 
 export default withRenderControl(CountryPage, {

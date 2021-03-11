@@ -33,6 +33,12 @@ const styles = makeStyles({
       },
     },
 
+    '& .image-gallery': {
+      '& *': {
+        outline: 'none',
+      },
+    },
+
     '& .image-gallery-fullscreen-button, & .image-gallery-play-button': {
       bottom: 'unset',
       top: '0',
