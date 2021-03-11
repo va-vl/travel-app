@@ -1,13 +1,24 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
-import { SECONDS_IN_HOUR, MS_IN_SECOND } from '../../constants/TIME_PROPS';
+import { useLanguage } from '../../contexts/LanguageContext';
+import {
+  SECONDS_IN_HOUR,
+  MS_IN_SECOND,
+} from '../../constants/TIME_PROPS';
 
 const DateAndTime = ({ timeZone }) => {
   const dateNow = new Date();
   const diff = (dateNow.getTimezoneOffset() / 60 + timeZone) * SECONDS_IN_HOUR;
 
-  const [date, setDate] = React.useState('');
   const [counter, setCounter] = React.useState(dateNow.getTime() + diff * MS_IN_SECOND);
+  const [time, setTime] = React.useState('');
+  const [date, setDate] = React.useState('');
+  const [dayOfWeek, setDayOfWeek] = React.useState('');
+
+  const { language } = useLanguage();
+  const locale = language === 'en'
+    ? 'en-US'
+    : 'ru-RU';
 
   React.useEffect(() => {
     const timer = setTimeout(() => {
@@ -18,15 +29,17 @@ const DateAndTime = ({ timeZone }) => {
   });
 
   React.useEffect(() => {
-    setDate(new Date(counter).toLocaleString('en-GB'));
+    const localDate = new Date(counter);
+    setTime(localDate.toLocaleString(locale, { timeStyle: 'medium' }));
+    setDate(localDate.toLocaleString(locale, { dateStyle: 'long' }));
+    setDayOfWeek(localDate.toLocaleString(locale, { weekday: 'long' }));
   }, [counter]);
-
-  const [day, time] = date.replace(',', '').split(' ');
 
   return (
     <div className="widget">
       <p>{time}</p>
-      <p>{day}</p>
+      <p>{date}</p>
+      <p>{dayOfWeek}</p>
     </div>
   );
 };

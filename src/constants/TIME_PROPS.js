@@ -1,4 +1,4 @@
-export const TIMEZONES = {
+const TIMEZONES = {
   russia: 3,
   ukraine: 2,
   belarus: 3,
@@ -9,6 +9,12 @@ export const TIMEZONES = {
   uk: 0,
 };
 
-export const SECONDS_IN_HOUR = 3600;
+const SECONDS_IN_HOUR = 3600;
 
-export const MS_IN_SECOND = 1000;
+const MS_IN_SECOND = 1000;
+
+export {
+  TIMEZONES,
+  SECONDS_IN_HOUR,
+  MS_IN_SECOND,
+};
