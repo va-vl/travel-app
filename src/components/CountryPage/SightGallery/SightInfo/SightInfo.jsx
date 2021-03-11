@@ -1,24 +1,17 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
-import { useAuth } from '../../../../contexts/AuthContext';
-import Authorize from './Authorize/Login';
 import RateSight from './RateSight/RateSight';
 
-const SightInfo = ({ index, sights }) => {
-  const isAuth = useAuth();
-
-  return (
+const SightInfo = ({ index, sights }) => (
+  <div>
     <div>
-      <div>
-        <h3>{sights[index].name}</h3>
-        <p>{sights[index].description}</p>
-      </div>
-      <div>
-        {isAuth ? <RateSight /> : <Authorize />}
-      </div>
+      <h3>{sights[index].name}</h3>
+      <p>{sights[index].description}</p>
     </div>
-  );
-};
+    <div>here be sight ratings</div>
+    <RateSight />
+  </div>
+);
 
 SightInfo.propTypes = {
   index: PropTypes.number.isRequired,
