@@ -1,35 +1,17 @@
 import * as React from 'react';
 import styles from './styles/styles';
-import logoGithub from '../../assets/logo-github.svg';
 import logoRollingScopes from '../../assets/logo-rolling-scopes.svg';
+import GithubLogo from './GithubLogo/GithubLogo';
+import { links } from '../../constants/index';
 
-const urlRss = 'https://rs.school/js/';
-const urlGithubPrefix = 'https://github.com/';
+const {
+  developers,
+  urlRss,
+} = links;
 
 const Footer = () => {
   const classes = styles();
-  const developers = [
-    'velidoss',
-    'arumirinka',
-    'va-z',
-    'reagentjs',
-  ];
-  const developersJsx = developers.map((dev) => (
-    <a
-      key={dev}
-      href={urlGithubPrefix + dev}
-      target="_blank"
-      rel="noreferrer"
-      className="github-logo"
-      data-title={dev}
-    >
-      <img
-        src={logoGithub}
-        alt="github-logo"
-        width="30"
-      />
-    </a>
-  ));
+  const developersJsx = developers.map((dev) => <GithubLogo key={dev} dev={dev} />);
 
   return (
     <footer className={classes.root}>

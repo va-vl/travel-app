@@ -1,25 +1,29 @@
 import * as React from 'react';
 import { useParams } from 'react-router-dom';
-import queryFakeBackend from '../../utils/api';
-import CountryPage from './CountryPage';
-import { useLanguage } from '../../contexts/LanguageContext';
+import SightGallery from './SightGallery';
+import queryFakeBackend from '../../../utils/api';
+import { useLanguage } from '../../../contexts/LanguageContext';
+import { api } from '../../../constants/index';
 
-const getCountry = (countryId, language) => queryFakeBackend(
-  `/API_URL/countryId=${countryId}`,
+const { BACKEND_COUNTRY_SIGHTS } = api;
+
+const getSights = (countryId, language) => queryFakeBackend(
+  `${BACKEND_COUNTRY_SIGHTS}${countryId}`,
   'GET',
   { 'Accept-Language': language },
 );
 
-const CountryPageContainer = () => {
+const SightGalleryContainer = () => {
   const { countryId } = useParams();
   const { language } = useLanguage();
+
   const [isLoading, setIsLoading] = React.useState(false);
   const [isError, setIsError] = React.useState(false);
   const [isReady, setIsReady] = React.useState(false);
   const [data, setData] = React.useState({});
 
   React.useEffect(() => {
-    getCountry(countryId, language)
+    getSights(countryId, language)
       .then(({ body }) => {
         setData(body);
         setIsError(false);
@@ -34,13 +38,12 @@ const CountryPageContainer = () => {
       });
   }, [language]);
 
-  return CountryPage({
+  return SightGallery({
     isLoading,
     isError,
     isReady,
-    countryId,
     ...data,
   });
 };
 
-export default CountryPageContainer;
+export default SightGalleryContainer;

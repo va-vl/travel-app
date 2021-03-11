@@ -60,7 +60,7 @@ export default [
       },
       {
         id: 'lubartscastle',
-        name: 'Замок Любарта',
+        name: 'Lubart\'s Castle',
         description: 'It is the most prominent landmark of Lutsk, Ukraine and as such appears on the 200 hryvnia bill. (Another city castle, called Lower Castle, built by the Czartoryski family since the 14th century, is now a ruin.)',
       },
       {
