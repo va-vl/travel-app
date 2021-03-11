@@ -54,6 +54,21 @@ const styles = makeStyles({
     '& .image-gallery-svg': {
       height: '4rem',
     },
+
+    '& .widget': {
+      ...flexColumn(),
+      alignItems: 'center',
+
+      padding: '1rem',
+
+      borderRadius: '8px',
+      backgroundColor: 'rgba(60, 60, 60, .25)',
+
+      '& p:first-child': {
+        marginBottom: '1rem',
+        fontSize: '2rem',
+      },
+    },
   },
 });
 

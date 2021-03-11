@@ -21,8 +21,13 @@ const DateAndTime = ({ timeZone }) => {
     setDate(new Date(counter).toLocaleString('en-GB'));
   }, [counter]);
 
+  const [day, time] = date.replace(',', '').split(' ');
+
   return (
-    <div>{date}</div>
+    <div className="widget">
+      <p>{time}</p>
+      <p>{day}</p>
+    </div>
   );
 };
 
