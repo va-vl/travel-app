@@ -1,9 +1,11 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
 import Modal from './Modal/Modal';
+import { useLanguage } from '../../../../../../contexts/LanguageContext';
 
 const Authorize = ({ login }) => {
   const [open, setOpen] = React.useState(false);
+  const { dictionary: { LOG_IN_TO_RATE } } = useLanguage();
 
   const handleModalOpen = () => { setOpen(true); };
   const handleModalClose = () => { setOpen(false); };
@@ -19,7 +21,7 @@ const Authorize = ({ login }) => {
         type="button"
         onClick={handleModalOpen}
       >
-        Log in to rate
+        {LOG_IN_TO_RATE}
       </button>
     </div>
   );
