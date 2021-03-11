@@ -1,25 +1,29 @@
 // attribution:
 // https://javascript.plainenglish.io/authentication-in-react-caf2abfa0494
-
 import * as React from 'react';
 import PropTypes from 'prop-types';
 
-const AuthContext = React.createContext({
-  isLoggedIn: false,
-  token: null,
-  login: () => {},
-  logout: () => {},
-});
+const AuthContext = React.createContext();
+const AuthChangeContext = React.createContext();
 const useAuth = () => React.useContext(AuthContext);
+const useAuthChange = () => React.useContext(AuthChangeContext);
 
 const AuthProvider = ({ children }) => {
-  const [isLoggedIn, setLoggedIn] = React.useState(false);
-  const login = () => { setLoggedIn(true); };
-  const logout = () => { setLoggedIn(false); };
+  const [auth, setAuth] = React.useState(false);
+
+  const login = (token) => {
+    setAuth(!!token);
+  };
+
+  const logout = () => {
+    setAuth(false);
+  };
 
   return (
-    <AuthContext.Provider value={{ isLoggedIn, login, logout }}>
-      {children}
+    <AuthContext.Provider value={auth}>
+      <AuthChangeContext.Provider value={{ login, logout }}>
+        {children}
+      </AuthChangeContext.Provider>
     </AuthContext.Provider>
   );
 };
@@ -32,4 +36,5 @@ export {
   AuthContext,
   AuthProvider,
   useAuth,
+  useAuthChange,
 };
