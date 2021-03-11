@@ -9,7 +9,7 @@ import styles from '../styles/styles';
 const CountryInfo = ({
   name, capital, description, image,
 }) => {
-  const { dictionary } = useLanguage();
+  const { dictionary: { GO_BACK_BUTTON } } = useLanguage();
   const titleAlignLeft = `${classesCommon.title} ${classesCommon.alignLeft}`;
   const classes = styles();
 
@@ -23,7 +23,7 @@ const CountryInfo = ({
         <div className="info">
           <p className="description">{description}</p>
           <Link to="/" className={classes.link}>
-            {dictionary.GO_BACK_BUTTON}
+            {GO_BACK_BUTTON}
           </Link>
           <img src={image} alt="" />
         </div>
