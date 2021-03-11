@@ -6,12 +6,13 @@ import withRenderControl from '../_common/withRenderControl';
 import { useLanguage } from '../../contexts/LanguageContext';
 import stylesCommon from '../../styles/common';
 import styles from './styles/styles';
-import DateAndTime from './DateAndTime';
+import DateAndTime from './widgets/DateAndTime';
+import Weather from './widgets/Weather';
 
 const CountryPage = ({
-  name, capital, description, image, sights, timeZone,
+  name, capital, capitalEn, description, image, sights, timeZone,
 }) => {
-  const { dictionary } = useLanguage();
+  const { dictionary, language } = useLanguage();
   const classesCommon = stylesCommon();
   const classes = styles();
   const titleAlignLeft = `${classesCommon.title} ${classesCommon.alignLeft}`;
@@ -47,7 +48,10 @@ const CountryPage = ({
 
         <aside className="aside">
           <DateAndTime timeZone={timeZone} />
-          <div>widget2</div>
+          <Weather
+            capitalEn={capitalEn}
+            language={language}
+          />
           <div>widget3</div>
         </aside>
 
@@ -65,6 +69,7 @@ const CountryPage = ({
 CountryPage.propTypes = {
   name: PropTypes.string.isRequired,
   capital: PropTypes.string.isRequired,
+  capitalEn: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
   image: PropTypes.string.isRequired,
   sights: PropTypes.arrayOf(PropTypes.shape({

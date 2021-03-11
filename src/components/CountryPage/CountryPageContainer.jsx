@@ -4,6 +4,7 @@ import queryFakeBackend from '../../utils/api';
 import CountryPage from './CountryPage';
 import { useLanguage } from '../../contexts/LanguageContext';
 import { TIMEZONES } from '../../constants/TIME_PROPS';
+import CAPITALS_EN from '../../constants/CAPITALS_EN';
 
 const getCountry = (countryId, language) => queryFakeBackend(
   `/API_URL/countryId=${countryId}`,
@@ -40,6 +41,7 @@ const CountryPageContainer = () => {
     isError,
     isReady,
     countryId,
+    capitalEn: CAPITALS_EN[countryId],
     timeZone: TIMEZONES[countryId],
     ...data,
   });

@@ -58,7 +58,7 @@ const styles = makeStyles({
     '& .widget': {
       ...flexColumn(),
       alignItems: 'center',
-
+      marginBottom: '1rem',
       padding: '1rem',
 
       borderRadius: '8px',
@@ -68,6 +68,22 @@ const styles = makeStyles({
         marginBottom: '1rem',
         fontSize: '2rem',
       },
+    },
+
+    '& .rw-box': {
+      marginBottom: '1rem',
+    },
+
+    '& .rw-box-left': {
+      width: '100%',
+
+      '& .date': {
+        display: 'none',
+      },
+    },
+
+    '& .rw-box-right': {
+      display: 'none',
     },
   },
 });
