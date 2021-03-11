@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import queryFakeBackend from '../../utils/api';
 import CountryPage from './CountryPage';
 import { useLanguage } from '../../contexts/LanguageContext';
+import { TIMEZONES } from '../../constants/TIME_PROPS';
 
 const getCountry = (countryId, language) => queryFakeBackend(
   `/API_URL/countryId=${countryId}`,
@@ -39,6 +40,7 @@ const CountryPageContainer = () => {
     isError,
     isReady,
     countryId,
+    timeZone: TIMEZONES[countryId],
     ...data,
   });
 };

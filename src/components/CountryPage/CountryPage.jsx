@@ -6,9 +6,10 @@ import withRenderControl from '../_common/withRenderControl';
 import { useLanguage } from '../../contexts/LanguageContext';
 import stylesCommon from '../../styles/common';
 import styles from './styles/styles';
+import DateAndTime from './DateAndTime';
 
 const CountryPage = ({
-  name, capital, description, image, sights,
+  name, capital, description, image, sights, timeZone,
 }) => {
   const { dictionary } = useLanguage();
   const classesCommon = stylesCommon();
@@ -45,7 +46,7 @@ const CountryPage = ({
         </div>
 
         <aside className="aside">
-          <div>widget1</div>
+          <DateAndTime timeZone={timeZone} />
           <div>widget2</div>
           <div>widget3</div>
         </aside>
@@ -71,6 +72,7 @@ CountryPage.propTypes = {
     description: PropTypes.string,
     image: PropTypes.string,
   })).isRequired,
+  timeZone: PropTypes.number.isRequired,
 };
 
 export default withRenderControl(CountryPage, {
