@@ -27,9 +27,11 @@ const styles = makeStyles({
           borderRadius: '10px',
         },
       },
+    },
 
-      '& .aside': {
-        width: '20%',
+    '& .image-gallery': {
+      '& *': {
+        outline: 'none',
       },
     },
 

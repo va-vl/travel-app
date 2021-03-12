@@ -122,7 +122,7 @@ export default [
       {
         id: 'baiterek',
         name: 'Bayterek Tower',
-        description: 'A monument and observation tower in Nur-Sultan, the capital city of Kazakhstan. A tourist attraction popular with foreign visitors and native Kazakhs, it is emblematic of the city, which became capital of the country in 1997. ',
+        description: 'A monument and observation tower in Nur-Sultan, the capital city of Kazakhstan. A tourist attraction popular with foreign visitors and native Kazakhs, it is emblematic of the city, which became capital of the country in 1997.',
       },
       {
         id: 'altynemel',
@@ -178,7 +178,7 @@ export default [
         description: 'A 13th-century Teutonic castle and fortress located near the town of Malbork, Poland.',
       },
       {
-        id: 'lazienki ',
+        id: 'lazienki',
         name: 'Łazienki Park',
         description: 'The largest park in Warsaw, Poland, occupying 76 hectares of the city center.',
       },
@@ -256,7 +256,7 @@ export default [
       {
         id: 'arcdetriomphe',
         name: 'Arc de Triomphe',
-        description: 'One of the most famous monuments in Paris, France, standing at the western end of the Champs-Élysées at the centre of Place Charles de Gaulle, formerly named Place de l\'Étoile—the étoile or "star" of the juncture formed by its twelve radiating avenues. ',
+        description: 'One of the most famous monuments in Paris, France, standing at the western end of the Champs-Élysées at the centre of Place Charles de Gaulle, formerly named Place de l\'Étoile—the étoile or "star" of the juncture formed by its twelve radiating avenues.',
       },
       {
         id: 'chambord',

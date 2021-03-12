@@ -2,7 +2,6 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-size: 18px;
 }
 
 body {
@@ -14,6 +13,7 @@ body {
   background-image: url('assets/background.jpg');
   background-position: center;
   background-size: auto;
+  font-size: 18px;
 }
 
 h2, h3, h4 {

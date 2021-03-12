@@ -4,9 +4,11 @@ import queryFakeBackend from '../../../utils/api';
 import CountryInfo from './CountryInfo';
 import { useLanguage } from '../../../contexts/LanguageContext';
 import { api } from '../../../constants/index';
+import { TIMEZONES } from '../../../constants/TIME_PROPS';
+import CAPITALS_EN from '../../../constants/CAPITALS_EN';
+import CURRENCIES from '../../../constants/CURRENCIES';
 
 const { BACKEND_COUNTRY_INFO } = api;
-
 const getCountry = (countryId, language) => queryFakeBackend(
   `${BACKEND_COUNTRY_INFO}${countryId}`,
   'GET',
@@ -43,6 +45,9 @@ const CountryInfoContainer = () => {
     isError,
     isReady,
     countryId,
+    capitalEn: CAPITALS_EN[countryId],
+    timeZone: TIMEZONES[countryId],
+    countryCurrency: CURRENCIES[countryId],
     ...data,
   });
 };
