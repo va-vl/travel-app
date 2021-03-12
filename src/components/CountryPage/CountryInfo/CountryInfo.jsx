@@ -5,9 +5,10 @@ import { useLanguage } from '../../../contexts/LanguageContext';
 import withRenderControl from '../../_common/withRenderControl';
 import classesCommon from '../../../styles/common';
 import styles from '../styles/styles';
+import Widgets from '../Widgets/Widgets';
 
 const CountryInfo = ({
-  name, capital, description, image,
+  name, capital, description, image, capitalEn, timeZone, countryCurrency,
 }) => {
   const { dictionary: { GO_BACK_BUTTON } } = useLanguage();
   const titleAlignLeft = `${classesCommon.title} ${classesCommon.alignLeft}`;
@@ -27,6 +28,12 @@ const CountryInfo = ({
           </Link>
           <img src={image} alt="" />
         </div>
+
+        <Widgets
+          capitalEn={capitalEn}
+          timeZone={timeZone}
+          countryCurrency={countryCurrency}
+        />
       </div>
     </>
   );
@@ -37,6 +44,9 @@ CountryInfo.propTypes = {
   capital: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
   image: PropTypes.string.isRequired,
+  capitalEn: PropTypes.string.isRequired,
+  timeZone: PropTypes.number.isRequired,
+  countryCurrency: PropTypes.string.isRequired,
 };
 
 export default withRenderControl(CountryInfo, {
