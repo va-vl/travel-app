@@ -36,7 +36,7 @@ const DateAndTime = ({ timeZone }) => {
   }, [counter]);
 
   return (
-    <div className="widget">
+    <div className="widget date-and-time">
       <p>{time}</p>
       <p>{date}</p>
       <p>{dayOfWeek}</p>

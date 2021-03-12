@@ -27,10 +27,6 @@ const styles = makeStyles({
           borderRadius: '10px',
         },
       },
-
-      '& .aside': {
-        width: '20%',
-      },
     },
 
     '& .image-gallery': {
@@ -59,37 +55,6 @@ const styles = makeStyles({
 
     '& .image-gallery-svg': {
       height: '4rem',
-    },
-
-    '& .widget': {
-      ...flexColumn(),
-      alignItems: 'center',
-      marginBottom: '1rem',
-      padding: '1rem',
-
-      borderRadius: '8px',
-      backgroundColor: 'rgba(60, 60, 60, .25)',
-
-      '& p:first-child': {
-        marginBottom: '1rem',
-        fontSize: '2rem',
-      },
-    },
-
-    '& .rw-box': {
-      marginBottom: '1rem',
-    },
-
-    '& .rw-box-left': {
-      width: '100%',
-
-      '& .date': {
-        display: 'none',
-      },
-    },
-
-    '& .rw-box-right': {
-      display: 'none',
     },
   },
 });

@@ -25,18 +25,21 @@ const Currency = ({ countryCurrency }) => {
   }, []);
 
   return (
-    <div>
+    <div className="widget currency">
       {
-        CURRENCIES.map((cur) => (
-          <div key={cur}>
-            <span>
-              1
+        CURRENCIES.map((cur, index) => (
+          <p key={cur}>
+            <span className={index === 0 ? '' : 'invis'}>
+              1&nbsp;
               {countryCurrency}
-              =
             </span>
-            <span>{data[cur] ? Number(data[cur].toFixed(2)).toString() : null}</span>
-            <span>{cur}</span>
-          </div>
+            <span>
+              &nbsp;=&nbsp;
+              {data[cur] ? data[cur].toFixed(2) : null}
+              &nbsp;
+              {cur}
+            </span>
+          </p>
         ))
       }
     </div>

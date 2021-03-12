@@ -6,9 +6,7 @@ import withRenderControl from '../_common/withRenderControl';
 import { useLanguage } from '../../contexts/LanguageContext';
 import stylesCommon from '../../styles/common';
 import styles from './styles/styles';
-import DateAndTime from './widgets/DateAndTime';
-import Weather from './widgets/Weather';
-import Currency from './widgets/Currency';
+import Widgets from './widgets/Widgets';
 
 const CountryPage = ({
   name, capital, capitalEn, description, image, sights, timeZone, countryCurrency,
@@ -47,14 +45,12 @@ const CountryPage = ({
           <img src={image} alt="" />
         </div>
 
-        <aside className="aside">
-          <DateAndTime timeZone={timeZone} />
-          <Weather
-            capitalEn={capitalEn}
-            language={language}
-          />
-          <Currency countryCurrency={countryCurrency} />
-        </aside>
+        <Widgets
+          timeZone={timeZone}
+          capitalEn={capitalEn}
+          language={language}
+          countryCurrency={countryCurrency}
+        />
 
       </div>
 
