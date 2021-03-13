@@ -1,10 +1,10 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
-import { useLanguage } from '../../../contexts/LanguageContext';
+import { useLanguage } from '../../../../../contexts/LanguageContext';
 import {
   SECONDS_IN_HOUR,
   MS_IN_SECOND,
-} from '../../../constants/TIME_PROPS';
+} from '../../../../../constants/TIME_PROPS';
 
 const DateAndTime = ({ timeZone }) => {
   const dateNow = new Date();

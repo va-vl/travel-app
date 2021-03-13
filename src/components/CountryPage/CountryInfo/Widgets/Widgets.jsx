@@ -1,8 +1,8 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
-import DateAndTime from './DateAndTime';
-import Weather from './Weather';
-import Currency from './Currency';
+import DateAndTime from './DateAndTime/DateAndTime';
+import Weather from './Weather/Weather';
+import Currency from './Currency/Currency';
 import styles from './styles/styles';
 
 const Widgets = ({

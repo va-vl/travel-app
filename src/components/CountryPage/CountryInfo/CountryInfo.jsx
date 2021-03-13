@@ -5,7 +5,7 @@ import { useLanguage } from '../../../contexts/LanguageContext';
 import withRenderControl from '../../_common/withRenderControl';
 import classesCommon from '../../../styles/common';
 import styles from '../styles/styles';
-import Widgets from '../Widgets/Widgets';
+import Widgets from './Widgets/Widgets';
 
 const CountryInfo = ({
   name, capital, description, image, capitalEn, timeZone, countryCurrency,
