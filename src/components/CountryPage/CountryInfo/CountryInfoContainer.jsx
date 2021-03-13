@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { useParams } from 'react-router-dom';
-import queryFakeBackend from '../../../utils/api';
+import { queryFakeBackend } from '../../../utils/api';
 import CountryInfo from './CountryInfo';
 import { useLanguage } from '../../../contexts/LanguageContext';
 import { api } from '../../../constants/index';
@@ -9,6 +9,7 @@ import CAPITALS_EN from '../../../constants/CAPITALS_EN';
 import CURRENCIES from '../../../constants/CURRENCIES';
 
 const { BACKEND_COUNTRY_INFO } = api;
+
 const getCountry = (countryId, language) => queryFakeBackend(
   `${BACKEND_COUNTRY_INFO}${countryId}`,
   'GET',

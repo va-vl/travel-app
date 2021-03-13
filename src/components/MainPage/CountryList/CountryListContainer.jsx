@@ -1,44 +1,23 @@
 import * as React from 'react';
+import { useSelector, useDispatch, shallowEqual } from 'react-redux';
 import CountryList from './CountryList';
-import queryFakeBackend from '../../../utils/api';
 import { useLanguage } from '../../../contexts/LanguageContext';
-import { api } from '../../../constants/index';
-
-const { BACKEND_SUMMARIES } = api;
-
-const getSummaries = (language) => queryFakeBackend(
-  BACKEND_SUMMARIES,
-  'GET',
-  { 'Accept-Language': language },
-);
+import { countryListInitAC, countryListUpdateAC } from '../../../store/CountryListReducer/CountryListActions';
 
 const CountryListContainer = () => {
   const { language } = useLanguage();
-  const [isLoading] = React.useState(false);
-  const [isError, setIsError] = React.useState(false);
-  const [isReady, setIsReady] = React.useState(false);
-  const [data, setData] = React.useState([]);
+  const dispatch = useDispatch();
+  const countryListState = useSelector((state) => state.countryListReducer, shallowEqual);
 
   React.useEffect(() => {
-    getSummaries(language)
-      .then(({ body }) => {
-        setData(body);
-        setIsError(false);
-        setIsReady(true);
-      })
-      .catch((err) => {
-        setData(err.message);
-        setIsReady(false);
-        setIsError(true);
-      });
+    if (countryListState.isDefault) {
+      dispatch(countryListInitAC(language));
+    } else {
+      dispatch(countryListUpdateAC(language));
+    }
   }, [language]);
 
-  return CountryList({
-    isLoading,
-    isError,
-    isReady,
-    data,
-  });
+  return <CountryList canBeUpdated {...countryListState} />;
 };
 
 export default CountryListContainer;
