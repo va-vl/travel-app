@@ -1,7 +1,7 @@
 import * as React from 'react';
 import CountryInfoContainer from './CountryInfo/CountryInfoContainer';
 import SightGalleryContainer from './SightGallery/SightGalleryContainer';
-import Video from './Video/Video';
+import Videoplayer from './Videoplayer/Videoplayer';
 import styles from './styles/styles';
 
 const CountryPage = () => {
@@ -11,7 +11,7 @@ const CountryPage = () => {
     <main className={classes.root}>
       <CountryInfoContainer />
       <SightGalleryContainer />
-      <Video />
+      <Videoplayer />
     </main>
   );
 };

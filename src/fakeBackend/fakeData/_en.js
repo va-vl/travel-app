@@ -302,5 +302,6 @@ export default [
         description: 'A historic fortress which dominates the skyline of Edinburgh, the capital city of Scotland, from its position on the Castle Rock.',
       },
     ],
+    videoUrl: 'YrNxPr4PKQo',
   },
 ];
