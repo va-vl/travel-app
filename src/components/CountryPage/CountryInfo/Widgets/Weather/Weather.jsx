@@ -1,7 +1,7 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
 import ReactWeather from 'react-open-weather-widget';
-import { useLanguage } from '../../../contexts/LanguageContext';
+import { useLanguage } from '../../../../../contexts/LanguageContext';
 
 const Weather = ({ capitalEn }) => {
   const { lang } = useLanguage();

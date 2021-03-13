@@ -1,6 +1,5 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
-import axios from 'axios';
 
 const CURRENCIES = [
   'USD',
@@ -13,15 +12,9 @@ const Currency = ({ countryCurrency }) => {
   const [data, setData] = React.useState({});
 
   React.useEffect(() => {
-    const fetchData = async () => {
-      const result = await axios(
-        `https://v6.exchangerate-api.com/v6/${API_KEY}/latest/${countryCurrency}`,
-      );
-
-      setData(result.data.conversion_rates);
-    };
-
-    fetchData();
+    fetch(`https://v6.exchangerate-api.com/v6/${API_KEY}/latest/${countryCurrency}`)
+      .then((response) => response.json())
+      .then((result) => setData(result.conversion_rates));
   }, []);
 
   return (
