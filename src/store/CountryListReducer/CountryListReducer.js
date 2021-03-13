@@ -3,7 +3,7 @@ import {
   COUNTRY_LIST_UPDATE,
   COUNTRY_LIST_READY,
   COUNTRY_LIST_ERROR,
-} from './CountryListActions';
+} from './countryListActions';
 
 const initialState = {
   isDefault: true,
