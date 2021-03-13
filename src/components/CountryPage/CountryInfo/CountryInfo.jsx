@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { useLanguage } from '../../../contexts/LanguageContext';
 import withRenderControl from '../../_common/withRenderControl';
-import classesCommon from '../../../styles/common';
+import stylesCommon from '../../../styles/common';
 import styles from '../styles/styles';
 import Widgets from './Widgets/Widgets';
 
@@ -11,6 +11,8 @@ const CountryInfo = ({
   name, capital, description, image, capitalEn, timeZone, countryCurrency,
 }) => {
   const { dictionary: { GO_BACK_BUTTON } } = useLanguage();
+
+  const classesCommon = stylesCommon();
   const titleAlignLeft = `${classesCommon.title} ${classesCommon.alignLeft}`;
   const classes = styles();
 
@@ -20,7 +22,7 @@ const CountryInfo = ({
         {`${name}, ${capital}`}
       </h2>
 
-      <div className="main-content">
+      <div className="block main-content">
         <div className="info">
           <p className="description">{description}</p>
           <Link to="/" className={classes.link}>
