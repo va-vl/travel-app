@@ -8,10 +8,15 @@ const styles = makeStyles({
   },
 
   root: {
+    paddingBottom: '4rem',
     ...flexColumn(),
+    alignItems: 'center',
+
+    '& .block': {
+      marginBottom: '4rem',
+    },
 
     '& .main-content': {
-      marginBottom: '3rem',
       display: 'flex',
       justifyContent: 'space-between',
 

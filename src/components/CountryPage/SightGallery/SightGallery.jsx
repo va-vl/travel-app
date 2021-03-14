@@ -15,7 +15,7 @@ const SightGallery = ({ sights }) => {
   const [index, setIndex] = React.useState(0);
 
   return (
-    <div>
+    <div className="block">
       <SightInfo sights={sights} index={index} />
       <ImageGallery
         className="image-gallery"

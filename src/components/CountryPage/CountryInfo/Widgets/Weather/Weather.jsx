@@ -4,7 +4,7 @@ import ReactWeather from 'react-open-weather-widget';
 import { useLanguage } from '../../../../../contexts/LanguageContext';
 
 const Weather = ({ capitalEn }) => {
-  const { lang } = useLanguage();
+  const { language } = useLanguage();
 
   return (
     <ReactWeather
@@ -12,7 +12,8 @@ const Weather = ({ capitalEn }) => {
       apikey={process.env.REACT_APP_WEATHER_API_KEY}
       type="city"
       city={capitalEn}
-      lang={lang}
+      lang={language}
+      key={language}
     />
   );
 };
