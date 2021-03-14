@@ -2,7 +2,7 @@ import { makeStyles } from '@material-ui/core';
 
 const styles = makeStyles({
   root: {
-    marginBottom: '2rem',
+    marginBottom: '3rem',
     paddingTop: '2rem',
     display: 'flex',
     justifyContent: 'space-between',
@@ -24,6 +24,16 @@ const styles = makeStyles({
 
     '& .logo': {
       borderRadius: '50%',
+    },
+
+    '@media (max-width: 800px)': {
+      flexWrap: 'wrap',
+
+      '& .search': {
+        order: '1',
+        display: 'flex',
+        minWidth: '100%',
+      },
     },
   },
 });

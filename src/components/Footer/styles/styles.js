@@ -2,6 +2,7 @@ import { makeStyles } from '@material-ui/core';
 
 const styles = makeStyles({
   root: {
+    marginBottom: '2rem',
     height: '5rem',
     display: 'flex',
     justifyContent: 'space-between',
@@ -41,6 +42,10 @@ const styles = makeStyles({
       '&:last-child': {
         marginRight: '0',
       },
+    },
+
+    '@media (max-width: 400px)': {
+      flexDirection: 'column-reverse',
     },
   },
 });
