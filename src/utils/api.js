@@ -7,4 +7,10 @@ const queryFakeBackend = (url, method, headers) => fetch(url, {
     body: JSON.parse(text),
   }));
 
-export default queryFakeBackend;
+const queryBackend = (url, method) => fetch(url, { method })
+  .then((res) => res.json());
+
+export {
+  queryBackend,
+  queryFakeBackend,
+};
