@@ -11,7 +11,7 @@ const initialState = {
   isError: false,
   isReady: false,
   errorComponentProps: null,
-  data: null,
+  data: [],
 };
 
 const countryListReducer = (state = initialState, { type, payload }) => {
@@ -45,7 +45,7 @@ const countryListReducer = (state = initialState, { type, payload }) => {
         isError: true,
         isReady: false,
         errorComponentProps: { message: payload },
-        data: null,
+        data: [],
       };
     }
     default: {

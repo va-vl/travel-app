@@ -1,15 +1,14 @@
-/* eslint-disable no-shadow */
 import * as React from 'react';
 import PropTypes from 'prop-types';
-import { useLanguage } from '../../../../../contexts/LanguageContext';
-import { time } from '../../../../../constants/index';
+import { useLanguage } from '../../../contexts/LanguageContext';
+import { timeConstants } from '../../../constants/index';
 
 const {
   SECONDS_IN_HOUR,
   MS_IN_SECOND,
-} = time;
+} = timeConstants;
 
-const DateAndTime = ({ timeZone }) => {
+const DateTimeWidget = ({ timeZone }) => {
   const dateNow = new Date();
   const diff = (dateNow.getTimezoneOffset() / 60 + timeZone) * SECONDS_IN_HOUR;
 
@@ -47,8 +46,8 @@ const DateAndTime = ({ timeZone }) => {
   );
 };
 
-DateAndTime.propTypes = {
+DateTimeWidget.propTypes = {
   timeZone: PropTypes.number.isRequired,
 };
 
-export default DateAndTime;
+export default DateTimeWidget;

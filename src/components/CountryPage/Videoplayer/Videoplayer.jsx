@@ -1,50 +1,27 @@
 import * as React from 'react';
-import { useParams } from 'react-router-dom';
-import Video from './Video';
-import { queryFakeBackend } from '../../../utils/api';
-import { useLanguage } from '../../../contexts/LanguageContext';
-import { api } from '../../../constants/index';
+import PropTypes from 'prop-types';
+import styles from './styles/styles';
 
-const { BACKEND_VIDEO_URL } = api;
+const VideoPlayer = ({ video }) => {
+  const classes = styles();
 
-const getVideoUrl = (countryId, language) => queryFakeBackend(
-  `${BACKEND_VIDEO_URL}${countryId}`,
-  'GET',
-  { 'Accept-Language': language },
-);
-
-const Videoplayer = () => {
-  const { countryId } = useParams();
-  const { language } = useLanguage();
-
-  const [isLoading, setIsLoading] = React.useState(false);
-  const [isError, setIsError] = React.useState(false);
-  const [isReady, setIsReady] = React.useState(false);
-  const [data, setData] = React.useState({});
-
-  React.useEffect(() => {
-    getVideoUrl(countryId, language)
-      .then(({ body }) => {
-        setData(body);
-        setIsError(false);
-        setIsLoading(false);
-        setIsReady(true);
-      })
-      .catch((err) => {
-        setData(err.message);
-        setIsReady(false);
-        setIsLoading(false);
-        setIsError(true);
-      });
-  }, [language]);
-
-  return Video({
-    isLoading,
-    isError,
-    isReady,
-    language,
-    ...data,
-  });
+  return (
+    <div className={`block ${classes.root}`}>
+      <iframe
+        width="853"
+        height="480"
+        src={`https://www.youtube.com/embed/${video}`}
+        frameBorder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowFullScreen
+        title="Embedded youtube"
+      />
+    </div>
+  );
 };
 
-export default Videoplayer;
+VideoPlayer.propTypes = {
+  video: PropTypes.string.isRequired,
+};
+
+export default VideoPlayer;

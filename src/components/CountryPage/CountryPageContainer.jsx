@@ -4,7 +4,6 @@ import { useParams } from 'react-router-dom';
 import CountryPage from './CountryPage';
 import { useLanguage } from '../../contexts/LanguageContext';
 import { countryPageInitAC, countryPageUpdateAC } from '../../store/countryPageReducer/countryPageActions';
-import { countryData } from '../../constants/index';
 
 const CountryPageContainer = () => {
   const { language } = useLanguage();
@@ -21,7 +20,7 @@ const CountryPageContainer = () => {
   }, [language]);
 
   return (
-    <CountryPage canBeUpdated {...countryPageState} {...countryData[countryId]} />
+    <CountryPage canBeUpdated {...countryPageState} />
   );
 };
 

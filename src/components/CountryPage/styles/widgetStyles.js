@@ -1,5 +1,5 @@
 import { makeStyles } from '@material-ui/core';
-import flexColumn from '../../../../../styles/stylesUtils';
+import flexColumn from '../../../styles/stylesUtils';
 
 const styles = makeStyles({
   root: {
