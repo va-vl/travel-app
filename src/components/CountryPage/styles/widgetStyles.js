@@ -48,6 +48,48 @@ const styles = makeStyles({
     '& .invis': {
       opacity: '0',
     },
+
+    '@media (max-width: 900px)': {
+      width: '100%',
+      display: 'flex',
+      justifyContent: 'space-evenly',
+
+      '& .widget, .rw-box': {
+        marginBottom: '0',
+        justifyContent: 'center',
+      },
+    },
+
+    '@media (max-width: 600px)': {
+      flexWrap: 'wrap',
+
+      '& .widget': {
+        marginBottom: '1rem',
+        flexGrow: '1',
+
+        '&:first-of-type': {
+          marginRight: '1rem',
+        },
+      },
+
+      '& .rw-box': {
+        marginBottom: '0',
+      },
+
+      '& .rw-box-left, .rw-today': {
+        width: '100%',
+        justifyContent: 'center',
+      },
+
+      '& .rw-box-left>h2': {
+        textAlign: 'center',
+      },
+
+      '& .rw-today>div': {
+        display: 'flex',
+        justifyContent: 'center',
+      },
+    },
   },
 });
 

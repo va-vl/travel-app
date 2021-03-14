@@ -20,18 +20,15 @@ const CountryInfo = ({
   const titleAlignLeft = `${classesCommon.title} ${classesCommon.alignLeft}`;
 
   return (
-    <div className="block main-content">
-      <div>
-        <h2 className={titleAlignLeft}>
-          {`${name}, ${capital}`}
-        </h2>
-        <p className="description">{description}</p>
-        <Link to="/" className={classes.link}>
-          {GO_BACK_BUTTON}
-        </Link>
-        <img src={image} alt={name} />
-      </div>
-
+    <div className="content-info">
+      <h2 className={titleAlignLeft}>
+        {`${name}, ${capital}`}
+      </h2>
+      <p className="description">{description}</p>
+      <Link to="/" className={classes.link}>
+        {GO_BACK_BUTTON}
+      </Link>
+      <img src={image} alt={name} />
     </div>
   );
 };

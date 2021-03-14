@@ -30,7 +30,7 @@ const CountryPage = ({
 
   return (
     <main className={classes.root}>
-      <div>
+      <div className="block main-content">
         <CountryInfoContainer
           name={name}
           capital={capital}

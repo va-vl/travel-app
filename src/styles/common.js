@@ -18,6 +18,7 @@ const styles = makeStyles({
     marginBottom: '3rem',
     padding: '1rem 0',
 
+    display: 'inline-flex',
     fontSize: '2rem',
     borderBottom: '2px solid black',
   },

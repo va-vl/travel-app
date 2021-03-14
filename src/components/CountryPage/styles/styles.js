@@ -20,11 +20,12 @@ const styles = makeStyles({
       display: 'flex',
       justifyContent: 'space-between',
 
-      '& .info': {
+      '& .content-info': {
         width: '70%',
 
         '& .description': {
           marginBottom: '1rem',
+          textAlign: 'justify',
         },
 
         '& img': {
@@ -67,13 +68,10 @@ const styles = makeStyles({
         flexDirection: 'column',
       },
 
-      '& .info': {
-        width: 'auto',
-      },
-
-      '& .aside': {
+      '& .content-info': {
+        marginBottom: '2rem',
         width: '100%',
-        display: 'flex',
+        minWidth: '100%',
       },
     },
   },
