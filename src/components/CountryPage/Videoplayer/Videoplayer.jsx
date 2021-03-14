@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { useParams } from 'react-router-dom';
 import Video from './Video';
-import queryFakeBackend from '../../../utils/api';
+import { queryFakeBackend } from '../../../utils/api';
 import { useLanguage } from '../../../contexts/LanguageContext';
 import { api } from '../../../constants/index';
 
