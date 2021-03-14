@@ -10,7 +10,10 @@ const queryFakeBackend = (url, method, headers) => fetch(url, {
 const queryBackend = (url, method) => fetch(url, { method })
   .then((res) => res.json());
 
+const queryCurrencyAPI = (url) => fetch(url).then((res) => res.json());
+
 export {
   queryBackend,
   queryFakeBackend,
+  queryCurrencyAPI,
 };

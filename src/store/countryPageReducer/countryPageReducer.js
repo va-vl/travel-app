@@ -1,9 +1,9 @@
 import {
-  COUNTRY_LIST_INIT,
-  COUNTRY_LIST_UPDATE,
-  COUNTRY_LIST_READY,
-  COUNTRY_LIST_ERROR,
-} from './countryListActions';
+  COUNTRY_PAGE_INIT,
+  COUNTRY_PAGE_UPDATE,
+  COUNTRY_PAGE_READY,
+  COUNTRY_PAGE_ERROR,
+} from './countryPageActions';
 
 const initialState = {
   isDefault: true,
@@ -11,15 +11,15 @@ const initialState = {
   isError: false,
   isReady: false,
   errorComponentProps: null,
-  data: [],
+  data: null,
 };
 
-const countryListReducer = (state = initialState, { type, payload }) => {
+const countryPageReducer = (state = initialState, { type, payload }) => {
   switch (type) {
-    case COUNTRY_LIST_INIT: {
+    case COUNTRY_PAGE_INIT: {
       return initialState;
     }
-    case COUNTRY_LIST_UPDATE: {
+    case COUNTRY_PAGE_UPDATE: {
       return {
         ...state,
         isDefault: false,
@@ -28,7 +28,7 @@ const countryListReducer = (state = initialState, { type, payload }) => {
         isReady: false,
       };
     }
-    case COUNTRY_LIST_READY: {
+    case COUNTRY_PAGE_READY: {
       return {
         isDefault: false,
         isLoading: false,
@@ -38,14 +38,14 @@ const countryListReducer = (state = initialState, { type, payload }) => {
         data: payload,
       };
     }
-    case COUNTRY_LIST_ERROR: {
+    case COUNTRY_PAGE_ERROR: {
       return {
         isDefault: false,
         isLoading: false,
         isError: true,
         isReady: false,
         errorComponentProps: { message: payload },
-        data: [],
+        data: null,
       };
     }
     default: {
@@ -54,4 +54,4 @@ const countryListReducer = (state = initialState, { type, payload }) => {
   }
 };
 
-export default countryListReducer;
+export default countryPageReducer;
