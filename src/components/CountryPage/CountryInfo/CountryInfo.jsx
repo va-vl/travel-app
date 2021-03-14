@@ -8,13 +8,18 @@ import styles from '../styles/styles';
 import Widgets from './Widgets/Widgets';
 
 const CountryInfo = ({
-  name, capital, description, image, capitalEn, timeZone, countryCurrency,
+  name,
+  capital,
+  description,
+  image,
+  capitalEN,
+  capitalGMT,
+  currency,
 }) => {
   const { dictionary: { GO_BACK_BUTTON } } = useLanguage();
-
   const classesCommon = stylesCommon();
-  const titleAlignLeft = `${classesCommon.title} ${classesCommon.alignLeft}`;
   const classes = styles();
+  const titleAlignLeft = `${classesCommon.title} ${classesCommon.alignLeft}`;
 
   return (
     <>
@@ -32,9 +37,9 @@ const CountryInfo = ({
         </div>
 
         <Widgets
-          capitalEn={capitalEn}
-          timeZone={timeZone}
-          countryCurrency={countryCurrency}
+          capitalEn={capitalEN}
+          timeZone={capitalGMT}
+          countryCurrency={currency}
         />
       </div>
     </>
@@ -46,12 +51,12 @@ CountryInfo.propTypes = {
   capital: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
   image: PropTypes.string.isRequired,
-  capitalEn: PropTypes.string.isRequired,
-  timeZone: PropTypes.number.isRequired,
-  countryCurrency: PropTypes.string.isRequired,
+  capitalEN: PropTypes.string.isRequired,
+  capitalGMT: PropTypes.number.isRequired,
+  currency: PropTypes.string.isRequired,
 };
 
 export default withRenderControl(CountryInfo, {
-  LoadingComponent: <div>Loading</div>,
-  ErrorComponent: <div>Something Went Wrong!</div>,
+  LoadingComponent: () => <div>Loading</div>,
+  ErrorComponent: () => <div>Something Went Wrong!</div>,
 });

@@ -1,10 +1,13 @@
+/* eslint-disable no-shadow */
 import * as React from 'react';
 import PropTypes from 'prop-types';
 import { useLanguage } from '../../../../../contexts/LanguageContext';
-import {
+import { time } from '../../../../../constants/index';
+
+const {
   SECONDS_IN_HOUR,
   MS_IN_SECOND,
-} from '../../../../../constants/TIME_PROPS';
+} = time;
 
 const DateAndTime = ({ timeZone }) => {
   const dateNow = new Date();

@@ -7,13 +7,10 @@ import { useLanguage } from '../../../contexts/LanguageContext';
 import { countrySearchUpdateAC } from '../../../store/countrySearchReducer/countrySearchActions';
 
 const SearchBar = () => {
+  const dispatch = useDispatch();
   const { dictionary: { SEARCH_PLACEHOLDER } } = useLanguage();
   const searchValue = useSelector((state) => state.countrySearchReducer.value);
-  const dispatch = useDispatch();
-
-  const initSearch = (event) => {
-    dispatch(countrySearchUpdateAC(event.target.value));
-  };
+  const initSearch = (event) => { dispatch(countrySearchUpdateAC(event.target.value)); };
 
   return (
     <TextField
