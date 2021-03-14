@@ -9,6 +9,7 @@ import WeatherWidget from './WeatherWidget/WeatherWidget';
 import DateTimeWidget from './DateTimeWidget/DateTimeWidget';
 import CurrencyWidgetContainer from './CurrencyWidget/CurrencyWidgetContainer';
 import VideoPlayer from './VideoPlayer/VideoPlayer';
+import Map from './Map/Map';
 import styles from './styles/styles';
 import widgetStyles from './styles/widgetStyles';
 
@@ -45,6 +46,7 @@ const CountryPage = ({
       </div>
       <SightGalleryContainer sights={sights} />
       <VideoPlayer video={videoUrl} />
+      <Map />
     </main>
   );
 };

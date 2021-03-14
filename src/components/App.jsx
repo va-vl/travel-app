@@ -1,6 +1,9 @@
 import * as React from 'react';
 import {
-  Switch, Route, Redirect, useLocation,
+  Switch,
+  Route,
+  Redirect,
+  useLocation,
 } from 'react-router-dom';
 import Header from './Header/Header';
 import MainPage from './MainPage/MainPage';
