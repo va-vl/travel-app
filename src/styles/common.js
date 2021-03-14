@@ -8,6 +8,10 @@ const styles = makeStyles({
 
     ...flexColumn(),
     maxWidth: '1280px',
+
+    '@media (max-width: 600px)': {
+      padding: '0 20px',
+    },
   },
 
   title: {

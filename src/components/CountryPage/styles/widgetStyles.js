@@ -4,6 +4,7 @@ import flexColumn from '../../../styles/stylesUtils';
 const styles = makeStyles({
   root: {
     width: '20%',
+    minWidth: '182px',
 
     '& .widget': {
       ...flexColumn(),

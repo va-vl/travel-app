@@ -61,6 +61,21 @@ const styles = makeStyles({
     '& .image-gallery-svg': {
       height: '4rem',
     },
+
+    '@media (max-width: 900px)': {
+      '& .main-content': {
+        flexDirection: 'column',
+      },
+
+      '& .info': {
+        width: 'auto',
+      },
+
+      '& .aside': {
+        width: '100%',
+        display: 'flex',
+      },
+    },
   },
 });
 

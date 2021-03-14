@@ -38,13 +38,13 @@ const CountryPage = ({
           image={image}
         />
         <aside className={widgetClasses.root}>
-          <DateTimeWidget timeZone={capitalGMT} />
+          <DateTimeWidget capitalGMT={capitalGMT} />
           <CurrencyWidgetContainer countryCurrency={currency} />
           <WeatherWidget city={capitalEN} />
         </aside>
       </div>
       <SightGalleryContainer sights={sights} />
-      <VideoPlayer video={videoUrl} />
+      <VideoPlayer videoUrl={videoUrl} />
     </main>
   );
 };
