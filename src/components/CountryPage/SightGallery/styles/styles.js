@@ -1,11 +1,8 @@
 import { makeStyles } from '@material-ui/core';
-import flexColumn from '../../../../styles/stylesUtils';
 
 const styles = makeStyles({
   root: {
     width: '100%',
-    ...flexColumn(),
-    justifyContent: 'flex-start',
 
     '& .sights-info': {
       padding: '1rem',
@@ -32,30 +29,18 @@ const styles = makeStyles({
       bottom: '0',
     },
 
-    '& .image-gallery-thumbnails-container': {
-      margin: '0 auto',
-      maxWidth: '600px',
-      display: 'flex',
-      flex: '1 1 0',
-    },
-
     '& .image-gallery-thumbnail': {
-      width: 'unset',
-      height: 'auto',
+      width: '74px',
       borderRadius: '5px',
     },
 
     '& .image-gallery-thumbnail-image': {
-      borderRadius: '4px',
+      borderRadius: '2px',
       cursor: 'pointer',
     },
 
     '& .image-gallery-svg': {
       height: '4rem',
-    },
-
-    '& .image-gallery-image': {
-      maxHeight: '600px !important',
     },
   },
 });

@@ -24,7 +24,10 @@ const SightGallery = ({ sights }) => {
         startIndex={index}
         onBeforeSlide={setIndex}
       />
-      <SightInfo sights={sights} index={index} />
+      <SightInfo
+        sights={sights}
+        index={index}
+      />
     </div>
   );
 };

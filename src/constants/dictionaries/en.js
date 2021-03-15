@@ -12,4 +12,8 @@ export default {
   MODAL_NAME_LABEL: 'Your name',
   MODAL_SUBMIT_BUTTON: 'Submit',
   MODAL_CANCEL_BUTTON: 'Cancel',
+
+  // weather
+  WIND: 'Wind',
+  HUMIDITY: 'Humidity',
 };
