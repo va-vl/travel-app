@@ -3,7 +3,7 @@ import flexColumn from '../../../styles/stylesUtils';
 
 const styles = makeStyles({
   root: {
-    ...flexColumn('3rem'),
+    ...flexColumn('4rem'),
 
     '& .cards-container': {
       display: 'flex',

@@ -9,7 +9,11 @@ import WeatherWidget from './WeatherWidget/WeatherWidget';
 import DateTimeWidget from './DateTimeWidget/DateTimeWidget';
 import CurrencyWidgetContainer from './CurrencyWidget/CurrencyWidgetContainer';
 import VideoPlayer from './VideoPlayer/VideoPlayer';
+<<<<<<< HEAD
 import Map from './Map/Map';
+=======
+import stylesCommon from '../../styles/common';
+>>>>>>> develop
 import styles from './styles/styles';
 import widgetStyles from './styles/widgetStyles';
 
@@ -26,27 +30,34 @@ const CountryPage = ({
     videoUrl,
   },
 }) => {
+  const classesCommon = stylesCommon();
+  const titleAlignLeft = `${classesCommon.title} ${classesCommon.alignLeft}`;
   const classes = styles();
   const widgetClasses = widgetStyles();
 
   return (
     <main className={classes.root}>
-      <div>
+      <h2 className={titleAlignLeft}>
+        {`${name}, ${capital}`}
+      </h2>
+      <div className="block main-content">
         <CountryInfoContainer
           name={name}
-          capital={capital}
           description={description}
           image={image}
         />
         <aside className={widgetClasses.root}>
-          <DateTimeWidget timeZone={capitalGMT} />
+          <DateTimeWidget capitalGMT={capitalGMT} />
           <CurrencyWidgetContainer countryCurrency={currency} />
           <WeatherWidget city={capitalEN} />
         </aside>
       </div>
       <SightGalleryContainer sights={sights} />
       <VideoPlayer videoUrl={videoUrl} />
+<<<<<<< HEAD
       <Map className="map" />
+=======
+>>>>>>> develop
     </main>
   );
 };
