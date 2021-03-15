@@ -43,8 +43,8 @@ const FormDialog = ({ open, handleClose, handleSubmit }) => {
 
 FormDialog.propTypes = {
   open: PropTypes.bool.isRequired,
-  handleClose: PropTypes.bool.isRequired,
-  handleSubmit: PropTypes.bool.isRequired,
+  handleClose: PropTypes.func.isRequired,
+  handleSubmit: PropTypes.func.isRequired,
 };
 
 export default FormDialog;

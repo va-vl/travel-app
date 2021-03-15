@@ -13,53 +13,38 @@ const styles = makeStyles({
     alignItems: 'center',
 
     '& .block': {
-      marginBottom: '4rem',
+      marginBottom: '5rem',
     },
 
     '& .main-content': {
       display: 'flex',
       justifyContent: 'space-between',
 
-      '& .info': {
+      '& .content-info': {
         width: '70%',
 
         '& .description': {
           marginBottom: '1rem',
+          textAlign: 'justify',
         },
 
         '& img': {
           width: '100%',
-          borderRadius: '10px',
+          borderRadius: '0.5rem',
         },
       },
     },
 
-    '& .image-gallery': {
-      '& *': {
-        outline: 'none',
+    '@media (max-width: 900px)': {
+      '& .main-content': {
+        flexDirection: 'column',
       },
-    },
 
-    '& .image-gallery-fullscreen-button, & .image-gallery-play-button': {
-      bottom: 'unset',
-      top: '0',
-    },
-
-    '& .image-gallery-description': {
-      bottom: '0',
-    },
-
-    '& .image-gallery-thumbnail-image': {
-      borderRadius: '4px',
-      cursor: 'pointer',
-    },
-
-    '& .image-gallery-thumbnail': {
-      borderRadius: '5px',
-    },
-
-    '& .image-gallery-svg': {
-      height: '4rem',
+      '& .content-info': {
+        marginBottom: '2rem',
+        width: '100%',
+        minWidth: '100%',
+      },
     },
   },
 });
