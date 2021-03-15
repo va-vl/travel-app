@@ -11,7 +11,7 @@ const WeatherWidget = ({ city }) => {
       forecast="today"
       type="city"
       city={city}
-      lang={language}
+      lang={language === 'ua' ? 'uk' : language}
       key={language}
       apikey={process.env.REACT_APP_WEATHER_API_KEY}
     />

@@ -5,7 +5,8 @@ import withRenderControl from '../_common/withRenderControl';
 import APIErrorComponent from '../_common/APIErrorComponent';
 import CountryInfoContainer from './CountryInfo/CountryInfoContainer';
 import SightGalleryContainer from './SightGallery/SightGalleryContainer';
-import WeatherWidget from './WeatherWidget/WeatherWidget';
+// import WeatherWidget from './WeatherWidget/WeatherWidget';
+import WeatherWidget2 from './WeatherWidget/WeatherWidget2';
 import DateTimeWidget from './DateTimeWidget/DateTimeWidget';
 import CurrencyWidgetContainer from './CurrencyWidget/CurrencyWidgetContainer';
 import VideoPlayer from './VideoPlayer/VideoPlayer';
@@ -45,7 +46,8 @@ const CountryPage = ({
         <aside className={widgetClasses.root}>
           <DateTimeWidget capitalGMT={capitalGMT} />
           <CurrencyWidgetContainer countryCurrency={currency} />
-          <WeatherWidget city={capitalEN} />
+          {/* <WeatherWidget city={capitalEN} /> */}
+          <WeatherWidget2 city={capitalEN} />
         </aside>
       </div>
       <SightGalleryContainer sights={sights} />
