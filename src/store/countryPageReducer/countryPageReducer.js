@@ -29,7 +29,11 @@ const countryPageReducer = (state = initialState, { type, payload }) => {
       };
     }
     case COUNTRY_PAGE_READY: {
-      const { capitalGMT } = payload;
+      const {
+        capitalGMT,
+        capitalLat,
+        capitalLon,
+      } = payload;
 
       return {
         isDefault: false,
@@ -40,6 +44,8 @@ const countryPageReducer = (state = initialState, { type, payload }) => {
         data: {
           ...payload,
           capitalGMT: Number(capitalGMT),
+          capitalLat: Number(capitalLat),
+          capitalLon: Number(capitalLon),
         },
       };
     }

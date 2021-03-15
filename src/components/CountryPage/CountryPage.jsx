@@ -9,11 +9,8 @@ import WeatherWidget from './WeatherWidget/WeatherWidget';
 import DateTimeWidget from './DateTimeWidget/DateTimeWidget';
 import CurrencyWidgetContainer from './CurrencyWidget/CurrencyWidgetContainer';
 import VideoPlayer from './VideoPlayer/VideoPlayer';
-<<<<<<< HEAD
-import Map from './Map/Map';
-=======
+import MapView from './MapView/MapView';
 import stylesCommon from '../../styles/common';
->>>>>>> develop
 import styles from './styles/styles';
 import widgetStyles from './styles/widgetStyles';
 
@@ -28,6 +25,8 @@ const CountryPage = ({
     capitalGMT,
     currency,
     videoUrl,
+    capitalLat,
+    capitalLon,
   },
 }) => {
   const classesCommon = stylesCommon();
@@ -54,10 +53,7 @@ const CountryPage = ({
       </div>
       <SightGalleryContainer sights={sights} />
       <VideoPlayer videoUrl={videoUrl} />
-<<<<<<< HEAD
-      <Map className="map" />
-=======
->>>>>>> develop
+      <MapView capitalLat={capitalLat} capitalLon={capitalLon} />
     </main>
   );
 };
@@ -73,6 +69,8 @@ CountryPage.propTypes = {
     capitalGMT: PropTypes.number.isRequired,
     currency: PropTypes.string.isRequired,
     videoUrl: PropTypes.string.isRequired,
+    capitalLat: PropTypes.number.isRequired,
+    capitalLon: PropTypes.number.isRequired,
   }).isRequired,
 };
 
