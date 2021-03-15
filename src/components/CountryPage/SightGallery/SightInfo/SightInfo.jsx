@@ -8,7 +8,7 @@ const SightInfo = ({ index, sights }) => {
 
   // TODO: Sight ratings
   return (
-    <div>
+    <div className="sights-info">
       <div>
         <h3>{name}</h3>
         <p>{description}</p>

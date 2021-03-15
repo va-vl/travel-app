@@ -12,7 +12,7 @@ const styles = makeStyles({
       marginBottom: '1rem',
       padding: '1rem',
 
-      borderRadius: '8px',
+      borderRadius: '0.5rem',
       backgroundColor: 'rgba(60, 60, 60, .25)',
     },
 

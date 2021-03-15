@@ -13,7 +13,7 @@ const styles = makeStyles({
     alignItems: 'center',
 
     '& .block': {
-      marginBottom: '4rem',
+      marginBottom: '5rem',
     },
 
     '& .main-content': {
@@ -30,37 +30,9 @@ const styles = makeStyles({
 
         '& img': {
           width: '100%',
-          borderRadius: '10px',
+          borderRadius: '0.5rem',
         },
       },
-    },
-
-    '& .image-gallery': {
-      '& *': {
-        outline: 'none',
-      },
-    },
-
-    '& .image-gallery-fullscreen-button, & .image-gallery-play-button': {
-      bottom: 'unset',
-      top: '0',
-    },
-
-    '& .image-gallery-description': {
-      bottom: '0',
-    },
-
-    '& .image-gallery-thumbnail-image': {
-      borderRadius: '4px',
-      cursor: 'pointer',
-    },
-
-    '& .image-gallery-thumbnail': {
-      borderRadius: '5px',
-    },
-
-    '& .image-gallery-svg': {
-      height: '4rem',
     },
 
     '@media (max-width: 900px)': {
