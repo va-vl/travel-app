@@ -12,4 +12,8 @@ export default {
   MODAL_NAME_LABEL: '[ua]Your name',
   MODAL_SUBMIT_BUTTON: '[ua]Submit',
   MODAL_CANCEL_BUTTON: '[ua]Cancel',
+
+  // weather
+  WIND: 'Вітер',
+  HUMIDITY: 'Вологість',
 };

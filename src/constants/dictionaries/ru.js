@@ -13,4 +13,7 @@ export default {
   MODAL_SUBMIT_BUTTON: 'Отправить',
   MODAL_CANCEL_BUTTON: 'Отменить',
 
+  // weather
+  WIND: 'Ветер',
+  HUMIDITY: 'Влажность',
 };

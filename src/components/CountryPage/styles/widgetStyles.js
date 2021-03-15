@@ -6,14 +6,20 @@ const styles = makeStyles({
     width: '20%',
     minWidth: '182px',
 
+    ...flexColumn(),
+    flexWrap: 'wrap',
+    gap: '1rem',
+
     '& .widget': {
-      ...flexColumn(),
-      alignItems: 'center',
-      marginBottom: '1rem',
       padding: '1rem',
+      ...flexColumn(),
 
       borderRadius: '0.5rem',
       backgroundColor: 'rgba(60, 60, 60, .25)',
+
+      '&:not(:last-child)': {
+        alignItems: 'center',
+      },
     },
 
     '& .date-and-time': {
@@ -29,47 +35,22 @@ const styles = makeStyles({
       },
     },
 
-    '& .rw-box': {
-      marginBottom: '1rem',
-    },
-
-    '& .rw-box-left': {
-      width: '100%',
-
-      '& .date': {
-        display: 'none',
-      },
-    },
-
-    '& .rw-box-right': {
-      display: 'none',
-    },
-
     '& .invis': {
       opacity: '0',
     },
 
     '@media (max-width: 900px)': {
       width: '100%',
-      display: 'flex',
-      flexWrap: 'wrap',
-      gap: '1rem',
+      flexDirection: 'row',
       justifyContent: 'center',
 
-      '& .widget, .rw-box': {
-        marginBottom: '0',
+      '& .widget': {
+        margin: '0',
         minWidth: '12.5rem',
+        justifyContent: 'center',
         flexGrow: '1',
-        justifyContent: 'center',
-      },
 
-      '& .rw-box-left>h2': {
-        textAlign: 'center',
-      },
-
-      '& .rw-today>div': {
-        display: 'flex',
-        justifyContent: 'center',
+        alignItems: 'center',
       },
     },
   },

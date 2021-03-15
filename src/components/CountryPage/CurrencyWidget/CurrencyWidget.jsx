@@ -9,6 +9,8 @@ const CURRENCIES = [
   'RUB',
 ];
 
+const CURRENCY_PRECISION = 3;
+
 const CurrencyWidget = ({ data, countryCurrency }) => (
   <div className="widget currency">
     {
@@ -20,7 +22,7 @@ const CurrencyWidget = ({ data, countryCurrency }) => (
           </span>
           <span>
             &nbsp;=&nbsp;
-            {data[cur] ? data[cur].toFixed(2) : null}
+            {data[cur] ? data[cur].toFixed(CURRENCY_PRECISION) : null}
             &nbsp;
             {cur}
           </span>
