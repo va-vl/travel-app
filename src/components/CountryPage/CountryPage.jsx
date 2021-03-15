@@ -9,6 +9,7 @@ import WeatherWidget from './WeatherWidget/WeatherWidget';
 import DateTimeWidget from './DateTimeWidget/DateTimeWidget';
 import CurrencyWidgetContainer from './CurrencyWidget/CurrencyWidgetContainer';
 import VideoPlayer from './VideoPlayer/VideoPlayer';
+import stylesCommon from '../../styles/common';
 import styles from './styles/styles';
 import widgetStyles from './styles/widgetStyles';
 
@@ -25,15 +26,19 @@ const CountryPage = ({
     videoUrl,
   },
 }) => {
+  const classesCommon = stylesCommon();
+  const titleAlignLeft = `${classesCommon.title} ${classesCommon.alignLeft}`;
   const classes = styles();
   const widgetClasses = widgetStyles();
 
   return (
     <main className={classes.root}>
+      <h2 className={titleAlignLeft}>
+        {`${name}, ${capital}`}
+      </h2>
       <div className="block main-content">
         <CountryInfoContainer
           name={name}
-          capital={capital}
           description={description}
           image={image}
         />

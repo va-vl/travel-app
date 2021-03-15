@@ -52,32 +52,14 @@ const styles = makeStyles({
     '@media (max-width: 900px)': {
       width: '100%',
       display: 'flex',
-      justifyContent: 'space-evenly',
+      flexWrap: 'wrap',
+      gap: '1rem',
+      justifyContent: 'center',
 
       '& .widget, .rw-box': {
         marginBottom: '0',
-        justifyContent: 'center',
-      },
-    },
-
-    '@media (max-width: 600px)': {
-      flexWrap: 'wrap',
-
-      '& .widget': {
-        marginBottom: '1rem',
+        minWidth: '12.5rem',
         flexGrow: '1',
-
-        '&:first-of-type': {
-          marginRight: '1rem',
-        },
-      },
-
-      '& .rw-box': {
-        marginBottom: '0',
-      },
-
-      '& .rw-box-left, .rw-today': {
-        width: '100%',
         justifyContent: 'center',
       },
 
