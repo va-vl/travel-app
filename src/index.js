@@ -9,7 +9,6 @@ import { AuthProvider } from './contexts/AuthContext';
 import '@fontsource/roboto';
 import './index.css';
 import 'react-image-gallery/styles/css/image-gallery.css';
-import 'react-open-weather-widget/lib/css/ReactWeather.css';
 
 //
 import configureFakeBackend from './fakeBackend/configureFakeBackend';

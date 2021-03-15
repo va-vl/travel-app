@@ -1,4 +1,5 @@
 import { makeStyles } from '@material-ui/core';
+import flexColumn from '../../../../styles/stylesUtils';
 
 const styles = makeStyles({
   root: {
@@ -13,13 +14,7 @@ const styles = makeStyles({
     },
 
     '& .weather__up_text, .weather__down': {
-      display: 'flex',
-      flexDirection: 'column',
-      alignItems: 'flex-start',
-    },
-
-    '& .weather__up_image': {
-      display: 'flex',
+      ...flexColumn(),
     },
   },
 });
