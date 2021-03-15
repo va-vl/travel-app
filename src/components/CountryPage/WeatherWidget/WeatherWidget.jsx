@@ -4,36 +4,42 @@ import { useLanguage } from '../../../contexts/LanguageContext';
 import styles from './styles/styles';
 import { WEATHER_API_KEY } from '../../../config/keys';
 
-const WeatherWidget = ({ city }) => {
-  const { language } = useLanguage();
+const WeatherWidget = ({ capital, capitalEN }) => {
+  const {
+    language,
+    dictionary: {
+      WIND,
+      HUMIDITY,
+    },
+  } = useLanguage();
   const classes = styles();
 
-  const [status, setStatus] = React.useState();
-  const [temp, setTemp] = React.useState(0);
-  const [icon, setIcon] = React.useState('');
-  const [wind, setWind] = React.useState(0);
-  const [humidity, setHumidity] = React.useState(0);
-  const [condition, setCondition] = React.useState('');
+  const [isStatusOk, setStatus] = React.useState(true);
+  const [data, setData] = React.useState({});
+  const [condition, setCondition] = React.useState({});
 
-  const url = `https://api.weatherapi.com/v1/current.json?key=${WEATHER_API_KEY}&q=${city}`;
+  const city = capitalEN === 'kyiv'
+    ? 'kiev'
+    : capitalEN;
+
+  const lang = language === 'ua'
+    ? 'uk'
+    : language;
+
+  const url = `https://api.weatherapi.com/v1/current.json?key=${WEATHER_API_KEY}&q=${city}&lang=${lang}`;
 
   React.useEffect(() => {
     fetch(url)
-      .then((response) => {
-        setStatus(response.status);
-        return response.json();
-      })
+      .then((response) => response.json())
       .then(({ current }) => {
-        setTemp(current.temp_c);
-        setIcon(current.condition.icon);
-        setWind(Number(current.gust_kph / 3.6).toFixed(1));
-        setHumidity(current.humidity);
-        setCondition(current.condition.text);
-      });
+        setData(current);
+        setCondition(current.condition);
+      })
+      .catch(() => setStatus(false));
   }, [language]);
 
-  if (status === 400 || status === 401 || status === 501) {
-    return <div>Impossible to get weather data</div>;
+  if (!isStatusOk) {
+    return <></>;
   }
 
   return (
@@ -41,23 +47,24 @@ const WeatherWidget = ({ city }) => {
 
       <div className="weather__up">
         <div className="weather__up_text">
-          <p>{city}</p>
-          <p>{`${temp} °C`}</p>
+          <p>{capital}</p>
+          <p>{`${data.temp_c} °C`}</p>
         </div>
-        <img src={`https:${icon}`} alt="weatherIcon" width="64" />
+        <img src={`https:${condition.icon}`} alt="weatherIcon" width="64" />
       </div>
 
       <div className="weather__down">
-        <p>{`Wind: ${wind} m/s`}</p>
-        <p>{`Humidity: ${humidity}%`}</p>
-        <p>{condition}</p>
+        <p>{`${WIND}: ${Number(data.gust_kph / 3.6).toFixed(1)} m/s`}</p>
+        <p>{`${HUMIDITY}: ${data.humidity}%`}</p>
+        <p>{condition.text}</p>
       </div>
     </div>
   );
 };
 
 WeatherWidget.propTypes = {
-  city: PropTypes.string.isRequired,
+  capital: PropTypes.string.isRequired,
+  capitalEN: PropTypes.string.isRequired,
 };
 
 export default WeatherWidget;

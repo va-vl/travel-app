@@ -45,7 +45,10 @@ const CountryPage = ({
         <aside className={widgetClasses.root}>
           <DateTimeWidget capitalGMT={capitalGMT} />
           <CurrencyWidgetContainer countryCurrency={currency} />
-          <WeatherWidget city={capitalEN} />
+          <WeatherWidget
+            capital={capital}
+            capitalEN={capitalEN}
+          />
         </aside>
       </div>
       <SightGalleryContainer sights={sights} />
