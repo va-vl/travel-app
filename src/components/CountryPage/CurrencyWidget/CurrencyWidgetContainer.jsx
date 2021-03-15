@@ -52,8 +52,6 @@ const CurrencyWidgetContainer = ({ countryCurrency }) => {
 
     getData(countryCurrency)
       .then((res) => {
-        console.log(res);
-
         dispatch({
           type: 'READY',
           payload: res.conversion_rates,
