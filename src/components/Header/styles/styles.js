@@ -3,7 +3,6 @@ import { makeStyles } from '@material-ui/core';
 const styles = makeStyles({
   root: {
     marginBottom: '3rem',
-    paddingTop: '2rem',
     display: 'flex',
     justifyContent: 'space-between',
     alignItems: 'center',
