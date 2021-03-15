@@ -10,6 +10,7 @@ import '@fontsource/roboto';
 import './index.css';
 import 'react-image-gallery/styles/css/image-gallery.css';
 import 'react-open-weather-widget/lib/css/ReactWeather.css';
+import 'leaflet/dist/leaflet.css';
 
 //
 import configureFakeBackend from './fakeBackend/configureFakeBackend';

@@ -19,3 +19,7 @@ body {
 h2, h3, h4 {
   font-weight: 500;
 }
+
+.map {
+  height: 20vh;
+}

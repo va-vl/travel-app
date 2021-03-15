@@ -45,8 +45,8 @@ const CountryPage = ({
         </aside>
       </div>
       <SightGalleryContainer sights={sights} />
-      <VideoPlayer video={videoUrl} />
-      <Map />
+      <VideoPlayer videoUrl={videoUrl} />
+      <Map className="map" />
     </main>
   );
 };
