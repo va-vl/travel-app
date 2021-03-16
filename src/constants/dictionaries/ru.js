@@ -1,6 +1,6 @@
 export default {
   // main page
-  SEARCH_PLACEHOLDER: 'Введите название страны или столицы',
+  SEARCH_PLACEHOLDER: 'Поиск по странам и столицам',
 
   // country page
   OUR_PROPOSALS: 'Наши предложения',
@@ -8,7 +8,7 @@ export default {
 
   // auth
   LOG_OUT: 'Выйти из профиля',
-  LOG_IN_TO_RATE: 'Авторизируйтесь, чтобы поставить оценку',
+  LOG_IN_TO_RATE: 'Авторизуйтесь, чтобы поставить оценку',
   MODAL_NAME_LABEL: 'Ваше имя',
   MODAL_SUBMIT_BUTTON: 'Отправить',
   MODAL_CANCEL_BUTTON: 'Отменить',

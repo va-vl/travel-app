@@ -1,13 +1,14 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
-import CurrencyWidget from './CurrencyWidget';
+import WeatherWidget from './WeatherWidget';
+import { useLanguage } from '../../../contexts/LanguageContext';
 import { queryExternalAPI } from '../../../utils/api';
 import { api } from '../../../constants/index';
-import { CURRENCY_CONVERTER_API_KEY } from '../../../config/keys';
+import { WEATHER_API_KEY } from '../../../config/keys';
 
-const { CURRENCY_API } = api;
-const getData = (currency) => queryExternalAPI(
-  `${CURRENCY_API}${CURRENCY_CONVERTER_API_KEY}/latest/${currency}`,
+const { GET_WEATHER_API } = api;
+const getData = (city, lang) => queryExternalAPI(
+  GET_WEATHER_API(WEATHER_API_KEY, city, lang),
 );
 
 const initialState = {
@@ -47,17 +48,45 @@ const reducer = (state, { type, payload }) => {
   }
 };
 
-const CurrencyWidgetContainer = ({ countryCurrency }) => {
+const WeatherWidgetContainer = ({ capital, capitalEN }) => {
   const [state, dispatch] = React.useReducer(reducer, initialState);
+  const { language } = useLanguage();
+
+  const city = capitalEN === 'kyiv'
+    ? 'kiev'
+    : capitalEN;
+
+  const lang = language === 'ua'
+    ? 'uk'
+    : language;
 
   React.useEffect(() => {
     dispatch({ type: 'INIT' });
 
-    getData(countryCurrency)
+    getData(city, lang)
       .then((res) => {
+        const {
+          current: {
+            gust_kph: gustKph,
+            temp_c: tempC,
+            humidity,
+            condition: {
+              icon,
+              text,
+            },
+          },
+        } = res;
+
         dispatch({
           type: 'READY',
-          payload: res.conversion_rates,
+          payload: {
+            gustKph,
+            tempC,
+            humidity,
+            icon,
+            text,
+            capital,
+          },
         });
       })
       .catch((err) => {
@@ -66,19 +95,19 @@ const CurrencyWidgetContainer = ({ countryCurrency }) => {
           payload: err.message,
         });
       });
-  }, []);
+  }, [capital]);
 
   return (
-    <CurrencyWidget
+    <WeatherWidget
       canBeUpdated
       {...state}
-      countryCurrency={countryCurrency}
     />
   );
 };
 
-CurrencyWidgetContainer.propTypes = {
-  countryCurrency: PropTypes.string.isRequired,
+WeatherWidgetContainer.propTypes = {
+  capital: PropTypes.string.isRequired,
+  capitalEN: PropTypes.string.isRequired,
 };
 
-export default CurrencyWidgetContainer;
+export default WeatherWidgetContainer;

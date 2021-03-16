@@ -1,6 +1,6 @@
 export default {
   // main page
-  SEARCH_PLACEHOLDER: 'Start typing country or capital',
+  SEARCH_PLACEHOLDER: 'Searching countries and capitals',
   OUR_PROPOSALS: 'Our proposals',
 
   // country page

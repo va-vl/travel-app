@@ -5,10 +5,11 @@ import withRenderControl from '../_common/withRenderControl';
 import APIErrorComponent from '../_common/APIErrorComponent';
 import CountryInfoContainer from './CountryInfo/CountryInfoContainer';
 import SightGalleryContainer from './SightGallery/SightGalleryContainer';
-import WeatherWidget from './WeatherWidget/WeatherWidget';
+import WeatherWidgetContainer from './WeatherWidget/WeatherWidgetContainer';
 import DateTimeWidget from './DateTimeWidget/DateTimeWidget';
 import CurrencyWidgetContainer from './CurrencyWidget/CurrencyWidgetContainer';
 import VideoPlayer from './VideoPlayer/VideoPlayer';
+import MapView from './MapView/MapView';
 import stylesCommon from '../../styles/common';
 import styles from './styles/styles';
 import widgetStyles from './styles/widgetStyles';
@@ -24,6 +25,8 @@ const CountryPage = ({
     capitalGMT,
     currency,
     videoUrl,
+    capitalLat,
+    capitalLon,
   },
 }) => {
   const classesCommon = stylesCommon();
@@ -45,7 +48,7 @@ const CountryPage = ({
         <aside className={widgetClasses.root}>
           <DateTimeWidget capitalGMT={capitalGMT} />
           <CurrencyWidgetContainer countryCurrency={currency} />
-          <WeatherWidget
+          <WeatherWidgetContainer
             capital={capital}
             capitalEN={capitalEN}
           />
@@ -53,6 +56,7 @@ const CountryPage = ({
       </div>
       <SightGalleryContainer sights={sights} />
       <VideoPlayer videoUrl={videoUrl} />
+      <MapView capitalLat={capitalLat} capitalLon={capitalLon} />
     </main>
   );
 };
@@ -68,6 +72,8 @@ CountryPage.propTypes = {
     capitalGMT: PropTypes.number.isRequired,
     currency: PropTypes.string.isRequired,
     videoUrl: PropTypes.string.isRequired,
+    capitalLat: PropTypes.number.isRequired,
+    capitalLon: PropTypes.number.isRequired,
   }).isRequired,
 };
 
