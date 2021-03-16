@@ -58,10 +58,10 @@ const MapView = ({ capitalLon, capitalLat }) => {
       <Marker
         longitude={capitalLon}
         latitude={capitalLat}
-        offsetTop={-25}
+        offsetTop={-50}
         offsetLeft={-25}
       >
-        <img src={icon} width="50" height="50" alt="Country, Capital" />
+        <img src={icon} width="50" height="50" alt="Capital Marker" />
       </Marker>
       <Source type="geojson" data={data}>
         <Layer
