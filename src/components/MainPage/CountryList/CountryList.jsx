@@ -1,7 +1,7 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
 import CircularProgress from '@material-ui/core/CircularProgress';
-import CountryCardContainer from './CountryCard/CountryCardContainer';
+import CountryCard from './CountryCard/CountryCard';
 import withRenderControl from '../../_common/withRenderControl';
 import APIErrorComponent from '../../_common/APIErrorComponent';
 
@@ -14,7 +14,7 @@ const CountryList = ({ data }) => (
         capital,
         image,
       }) => (
-        <CountryCardContainer
+        <CountryCard
           key={id}
           id={id}
           name={name}
@@ -31,6 +31,10 @@ CountryList.propTypes = {
 };
 
 export default withRenderControl(CountryList, {
-  DefaultComponent: () => <CircularProgress />,
+  DefaultComponent: () => (
+    <div className="cards-container-placeholder">
+      <CircularProgress />
+    </div>
+  ),
   ErrorComponent: APIErrorComponent,
 });

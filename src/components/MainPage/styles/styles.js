@@ -34,6 +34,14 @@ const styles = makeStyles({
         },
       },
     },
+
+    '& .cards-container-placeholder': {
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+      width: '100%',
+      minHeight: '40vh',
+    },
   },
 });
 

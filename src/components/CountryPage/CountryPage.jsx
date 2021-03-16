@@ -3,14 +3,13 @@ import PropTypes from 'prop-types';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import withRenderControl from '../_common/withRenderControl';
 import APIErrorComponent from '../_common/APIErrorComponent';
-import CountryInfoContainer from './CountryInfo/CountryInfoContainer';
+import CountryInfo from './CountryInfo/CountryInfo';
 import SightGalleryContainer from './SightGallery/SightGalleryContainer';
 import WeatherWidgetContainer from './WeatherWidget/WeatherWidgetContainer';
 import DateTimeWidget from './DateTimeWidget/DateTimeWidget';
 import CurrencyWidgetContainer from './CurrencyWidget/CurrencyWidgetContainer';
 import VideoPlayer from './VideoPlayer/VideoPlayer';
 import MapView from './MapView/MapView';
-import stylesCommon from '../../styles/common';
 import styles from './styles/styles';
 import widgetStyles from './styles/widgetStyles';
 
@@ -29,19 +28,15 @@ const CountryPage = ({
     capitalLon,
   },
 }) => {
-  const classesCommon = stylesCommon();
-  const titleAlignLeft = `${classesCommon.title} ${classesCommon.alignLeft}`;
   const classes = styles();
   const widgetClasses = widgetStyles();
 
   return (
     <main className={classes.root}>
-      <h2 className={titleAlignLeft}>
-        {`${name}, ${capital}`}
-      </h2>
       <div className="block main-content">
-        <CountryInfoContainer
+        <CountryInfo
           name={name}
+          capital={capital}
           description={description}
           image={image}
         />
@@ -79,5 +74,16 @@ CountryPage.propTypes = {
 
 export default withRenderControl(CountryPage, {
   ErrorComponent: APIErrorComponent,
-  DefaultComponent: () => <CircularProgress />,
+  DefaultComponent: () => (
+    <div style={{
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+      width: '100%',
+      height: '80vh',
+    }}
+    >
+      <CircularProgress />
+    </div>
+  ),
 });

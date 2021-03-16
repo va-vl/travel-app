@@ -53,5 +53,9 @@ WeatherWidget.propTypes = {
 };
 
 export default withRenderControl(WeatherWidget, {
-  DefaultComponent: () => <CircularProgress />,
+  DefaultComponent: () => (
+    <div className="widget widget-loader">
+      <CircularProgress />
+    </div>
+  ),
 });

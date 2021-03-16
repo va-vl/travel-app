@@ -16,4 +16,9 @@ export default {
   // weather
   WIND: 'Вітер',
   HUMIDITY: 'Вологість',
+
+  // sight ratings
+  CURRENT_SIGHT_RATING: 'Даний рейтинг',
+  NOT_YET_RATED: 'Оцінок немає',
+  SEE_USERS: 'Дізнатися оцінок',
 };

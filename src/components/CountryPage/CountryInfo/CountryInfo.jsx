@@ -1,13 +1,13 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
-import CircularProgress from '@material-ui/core/CircularProgress';
 import { Link } from 'react-router-dom';
 import { useLanguage } from '../../../contexts/LanguageContext';
-import withRenderControl from '../../_common/withRenderControl';
+import CountryInfoTextContainer from './CountryInfoText/CountryInfoTextContainer';
 import styles from '../styles/styles';
 
 const CountryInfo = ({
   name,
+  capital,
   description,
   image,
 }) => {
@@ -16,7 +16,7 @@ const CountryInfo = ({
 
   return (
     <div className="content-info">
-      <p className="description">{description}</p>
+      <CountryInfoTextContainer name={name} capital={capital} description={description} />
       <Link to="/" className={classes.link}>
         {GO_BACK_BUTTON}
       </Link>
@@ -27,11 +27,9 @@ const CountryInfo = ({
 
 CountryInfo.propTypes = {
   name: PropTypes.string.isRequired,
+  capital: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
   image: PropTypes.string.isRequired,
 };
 
-export default withRenderControl(CountryInfo, {
-  LoadingComponent: () => <CircularProgress />,
-  ErrorComponent: () => <div>Something Went Wrong!</div>,
-});
+export default CountryInfo;

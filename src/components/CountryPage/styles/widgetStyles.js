@@ -39,6 +39,16 @@ const styles = makeStyles({
       opacity: '0',
     },
 
+    '& .widget-loader': {
+      padding: '1rem',
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+
+      borderRadius: '0.5rem',
+      backgroundColor: 'rgba(60, 60, 60, .25)',
+    },
+
     '@media (max-width: 900px)': {
       width: '100%',
       flexDirection: 'row',

@@ -9,18 +9,18 @@ const useAuth = () => React.useContext(AuthContext);
 const useAuthChange = () => React.useContext(AuthChangeContext);
 
 const AuthProvider = ({ children }) => {
-  const [auth, setAuth] = React.useState(false);
+  const [token, setToken] = React.useState(null);
 
-  const login = (token) => {
-    setAuth(!!token);
+  const login = (incomingToken) => {
+    setToken(incomingToken);
   };
 
   const logout = () => {
-    setAuth(false);
+    setToken(null);
   };
 
   return (
-    <AuthContext.Provider value={auth}>
+    <AuthContext.Provider value={!!token}>
       <AuthChangeContext.Provider value={{ login, logout }}>
         {children}
       </AuthChangeContext.Provider>
