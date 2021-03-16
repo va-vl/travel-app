@@ -32,10 +32,7 @@ const CountryPage = ({
   const widgetClasses = widgetStyles();
 
   return (
-    <main className={`${classesCommon.main} ${classes.root}`}>
-      <h2 className={titleAlignLeft}>
-        {`${name}, ${capital}`}
-      </h2>
+    <main className={classes.root}>
       <div className="block main-content">
         <CountryInfo
           name={name}
