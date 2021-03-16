@@ -31,7 +31,7 @@ const reducer = (state, { type, payload }) => {
       return {
         data: payload,
         errorComponentProps: null,
-        isLoading: false,
+        isDefault: false,
         isError: false,
         isReady: true,
       };
@@ -40,9 +40,9 @@ const reducer = (state, { type, payload }) => {
       return {
         data: null,
         errorComponentProps: payload,
-        isLoading: false,
+        isDefault: false,
         isError: true,
-        isReady: true,
+        isReady: false,
       };
     }
   }

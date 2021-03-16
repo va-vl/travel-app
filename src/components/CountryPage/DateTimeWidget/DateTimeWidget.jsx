@@ -8,6 +8,12 @@ const {
   MS_IN_SECOND,
 } = timeConstants;
 
+const locales = {
+  en: 'en-US',
+  ru: 'ru-RU',
+  ua: 'uk-UA',
+};
+
 const DateTimeWidget = ({ capitalGMT }) => {
   const dateNow = new Date();
   const diff = (dateNow.getTimezoneOffset() / 60 + capitalGMT) * SECONDS_IN_HOUR;
@@ -18,9 +24,7 @@ const DateTimeWidget = ({ capitalGMT }) => {
   const [dayOfWeek, setDayOfWeek] = React.useState('');
 
   const { language } = useLanguage();
-  const locale = language === 'en'
-    ? 'en-US'
-    : 'ru-RU';
+  const locale = locales[language];
 
   React.useEffect(() => {
     const timer = setTimeout(() => {
