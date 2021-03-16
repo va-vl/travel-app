@@ -20,7 +20,7 @@ const CountryPageContainer = () => {
   }, [language]);
 
   return (
-    <CountryPage {...countryPageState} />
+    <CountryPage canBeUpdated {...countryPageState} />
   );
 };
 

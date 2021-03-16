@@ -1,7 +1,7 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
 import CurrentRatingContainer from './CurrentRating/CurrentRatingContainer';
-// import RateSight from './RateSight/RateSight';
+import RateSight from './RateSight/RateSight';
 
 const SightInfo = ({ index, sights }) => {
   const { id, name, description } = sights[index];
@@ -13,7 +13,7 @@ const SightInfo = ({ index, sights }) => {
         <p>{description}</p>
       </div>
       <CurrentRatingContainer sightId={id} />
-      {/* <RateSight /> */}
+      <RateSight />
     </div>
   );
 };
