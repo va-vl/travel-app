@@ -11,7 +11,8 @@ export default {
   LOG_IN_TO_RATE: 'Authorize to rate',
   MODAL_NAME_LABEL: 'Your name',
   MODAL_SUBMIT_BUTTON: 'Submit',
-  MODAL_CANCEL_BUTTON: 'Cancel',
+  MODAL_SWITCH_LOGIN: 'Login',
+  MODAL_SWITCH_REGISTER: 'Register',
 
   // weather
   WIND: 'Wind',

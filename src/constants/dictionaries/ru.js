@@ -11,7 +11,8 @@ export default {
   LOG_IN_TO_RATE: 'Авторизуйтесь, чтобы поставить оценку',
   MODAL_NAME_LABEL: 'Ваше имя',
   MODAL_SUBMIT_BUTTON: 'Отправить',
-  MODAL_CANCEL_BUTTON: 'Отменить',
+  MODAL_SWITCH_LOGIN: 'Войти',
+  MODAL_SWITCH_REGISTER: 'Зарегистрироваться',
 
   // weather
   WIND: 'Ветер',
