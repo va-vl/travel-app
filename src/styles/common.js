@@ -4,14 +4,19 @@ import flexColumn from './stylesUtils';
 const styles = makeStyles({
   root: {
     margin: '0 auto',
-    padding: '0 40px',
+    padding: '2rem 40px',
 
     ...flexColumn(),
     maxWidth: '1280px',
 
     '@media (max-width: 600px)': {
-      padding: '0 20px',
+      padding: '2rem 20px',
     },
+  },
+
+  main: {
+    ...flexColumn('4rem'),
+    minHeight: 'calc(100vh - 8rem - 4rem - 104px)',
   },
 
   title: {

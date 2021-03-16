@@ -1,5 +1,4 @@
 import { makeStyles } from '@material-ui/core';
-import flexColumn from '../../../styles/stylesUtils';
 
 const styles = makeStyles({
   link: {
@@ -8,11 +7,9 @@ const styles = makeStyles({
   },
 
   root: {
-    paddingBottom: '4rem',
-    ...flexColumn(),
     alignItems: 'center',
 
-    '& .block': {
+    '& .block:not(:last-child)': {
       marginBottom: '5rem',
     },
 
