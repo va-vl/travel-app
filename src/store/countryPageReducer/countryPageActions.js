@@ -44,3 +44,5 @@ export const countryPageUpdateAC = (countryId, language) => (dispatch) => {
     .then((res) => { dispatch(readyAC(res)); })
     .catch((err) => { dispatch(errorAC(err.message)); });
 };
+
+export const countryPageClearAC = () => ({ type: COUNTRY_PAGE_INIT });

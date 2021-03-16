@@ -16,4 +16,9 @@ export default {
   // weather
   WIND: 'Ветер',
   HUMIDITY: 'Влажность',
+
+  // sight ratings
+  CURRENT_SIGHT_RATING: 'Текущий рейтинг',
+  NOT_YET_RATED: 'Оценок нет',
+  SEE_USERS: 'Узнать оценки пользователей',
 };

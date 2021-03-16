@@ -1,20 +1,19 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
-import RateSight from './RateSight/RateSight';
-// import SightRating from './SightRating/SightRating';
+import CurrentRatingContainer from './CurrentRating/CurrentRatingContainer';
+// import RateSight from './RateSight/RateSight';
 
 const SightInfo = ({ index, sights }) => {
-  const { name, description } = sights[index];
+  const { id, name, description } = sights[index];
 
-  // TODO: Sight ratings
   return (
     <div className="sights-info">
       <div>
         <h3>{name}</h3>
         <p>{description}</p>
       </div>
-      {/* <SightRating sightId={id} /> */}
-      <RateSight />
+      <CurrentRatingContainer sightId={id} />
+      {/* <RateSight /> */}
     </div>
   );
 };
