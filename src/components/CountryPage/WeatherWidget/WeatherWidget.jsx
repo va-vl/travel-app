@@ -14,7 +14,7 @@ const WeatherWidget = ({ capital, capitalEN }) => {
   } = useLanguage();
   const classes = styles();
 
-  const [isStatusOk, setStatus] = React.useState(true);
+  const [isStatusOk, setStatus] = React.useState(false);
   const [data, setData] = React.useState({});
   const [condition, setCondition] = React.useState({});
 
@@ -34,6 +34,8 @@ const WeatherWidget = ({ capital, capitalEN }) => {
       .then(({ current }) => {
         setData(current);
         setCondition(current.condition);
+      }).then(() => {
+        setStatus(true);
       })
       .catch(() => setStatus(false));
   }, [language]);
