@@ -5,6 +5,7 @@ import CircularProgress from '@material-ui/core/CircularProgress';
 import styles from './styles/styles';
 import SightInfo from './SightInfo/SightInfo';
 import withRenderControl from '../../_common/withRenderControl';
+import APIErrorComponent from '../../_common/APIErrorComponent';
 
 const SightGallery = ({ sights }) => {
   const [index, setIndex] = React.useState(0);
@@ -41,5 +42,6 @@ SightGallery.propTypes = {
 };
 
 export default withRenderControl(SightGallery, {
-  DefaultComponent: () => <CircularProgress />,
+  DefaultComponent: () => (<div><CircularProgress /></div>),
+  ErrorComponent: APIErrorComponent,
 });

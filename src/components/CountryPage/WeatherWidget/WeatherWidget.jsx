@@ -1,12 +1,21 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
+import CircularProgress from '@material-ui/core/CircularProgress';
 import { useLanguage } from '../../../contexts/LanguageContext';
+import withRenderControl from '../../_common/withRenderControl';
 import styles from './styles/styles';
-import { WEATHER_API_KEY } from '../../../config/keys';
 
-const WeatherWidget = ({ capital, capitalEN }) => {
+const WeatherWidget = ({
+  data: {
+    capital,
+    gustKph,
+    humidity,
+    icon,
+    tempC,
+    text,
+  },
+}) => {
   const {
-    language,
     dictionary: {
       WIND,
       HUMIDITY,
@@ -14,57 +23,39 @@ const WeatherWidget = ({ capital, capitalEN }) => {
   } = useLanguage();
   const classes = styles();
 
-  const [isStatusOk, setStatus] = React.useState(true);
-  const [data, setData] = React.useState({});
-  const [condition, setCondition] = React.useState({});
-
-  const city = capitalEN === 'kyiv'
-    ? 'kiev'
-    : capitalEN;
-
-  const lang = language === 'ua'
-    ? 'uk'
-    : language;
-
-  const url = `https://api.weatherapi.com/v1/current.json?key=${WEATHER_API_KEY}&q=${city}&lang=${lang}`;
-
-  React.useEffect(() => {
-    fetch(url)
-      .then((response) => response.json())
-      .then(({ current }) => {
-        setData(current);
-        setCondition(current.condition);
-      })
-      .catch(() => setStatus(false));
-  }, [language]);
-
-  if (!isStatusOk) {
-    return <></>;
-  }
-
   return (
     <div className={`widget weather ${classes.root}`}>
-
       <div className="weather__up">
         <div className="weather__up_text">
           <p>{capital}</p>
-          <p>{`${data.temp_c} °C`}</p>
+          <p>{`${tempC} °C`}</p>
         </div>
-        <img src={`https:${condition.icon}`} alt="weatherIcon" width="64" />
+        <img src={`https:${icon}`} alt="weatherIcon" width="64" />
       </div>
-
       <div className="weather__down">
-        <p>{`${WIND}: ${Number(data.gust_kph / 3.6).toFixed(1)} m/s`}</p>
-        <p>{`${HUMIDITY}: ${data.humidity}%`}</p>
-        <p>{condition.text}</p>
+        <p>{`${WIND}: ${Number(gustKph / 3.6).toFixed(1)} m/s`}</p>
+        <p>{`${HUMIDITY}: ${humidity}%`}</p>
+        <p>{text}</p>
       </div>
     </div>
   );
 };
 
 WeatherWidget.propTypes = {
-  capital: PropTypes.string.isRequired,
-  capitalEN: PropTypes.string.isRequired,
+  data: PropTypes.shape({
+    capital: PropTypes.string,
+    icon: PropTypes.string,
+    text: PropTypes.string,
+    humidity: PropTypes.number,
+    gustKph: PropTypes.number,
+    tempC: PropTypes.number,
+  }).isRequired,
 };
 
-export default WeatherWidget;
+export default withRenderControl(WeatherWidget, {
+  DefaultComponent: () => (
+    <div className="widget widget-loader">
+      <CircularProgress />
+    </div>
+  ),
+});

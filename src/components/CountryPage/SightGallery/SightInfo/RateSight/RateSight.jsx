@@ -1,6 +1,6 @@
 import * as React from 'react';
 import GiveRating from './GiveRating/GiveRating';
-import Authorize from './Authorize/Authorize';
+import Auth from './Auth/Auth';
 import { useAuth, useAuthChange } from '../../../../../contexts/AuthContext';
 
 const RateSight = () => {
@@ -12,7 +12,7 @@ const RateSight = () => {
       {
         isAuth
           ? <GiveRating logout={logout} />
-          : <Authorize login={login} />
+          : <Auth login={login} />
       }
     </div>
   );

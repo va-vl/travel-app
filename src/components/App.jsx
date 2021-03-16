@@ -1,5 +1,10 @@
 import * as React from 'react';
-import { Switch, Route, Redirect } from 'react-router-dom';
+import {
+  Switch,
+  Route,
+  Redirect,
+  useLocation,
+} from 'react-router-dom';
 import Header from './Header/Header';
 import MainPage from './MainPage/MainPage';
 import CountryPageContainer from './CountryPage/CountryPageContainer';
@@ -8,6 +13,11 @@ import styleCommon from '../styles/common';
 
 const App = () => {
   const classes = styleCommon();
+  const { pathname } = useLocation();
+
+  React.useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
 
   return (
     <div className={classes.root}>

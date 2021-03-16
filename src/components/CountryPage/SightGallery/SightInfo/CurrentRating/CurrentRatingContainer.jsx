@@ -1,13 +1,13 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
-import CurrencyWidget from './CurrencyWidget';
-import { queryExternalAPI } from '../../../utils/api';
-import { api } from '../../../constants/index';
-import { CURRENCY_CONVERTER_API_KEY } from '../../../config/keys';
+import CurrentRating from './CurrentRating';
+import { queryBackend } from '../../../../../utils/api';
+import { api } from '../../../../../constants/index';
 
-const { CURRENCY_API } = api;
-const getData = (currency) => queryExternalAPI(
-  `${CURRENCY_API}${CURRENCY_CONVERTER_API_KEY}/latest/${currency}`,
+const { BACKEND_SIGHT_RATING } = api;
+const getData = (sightId) => queryBackend(
+  `${BACKEND_SIGHT_RATING}${sightId}`,
+  'GET',
 );
 
 const initialState = {
@@ -47,17 +47,18 @@ const reducer = (state, { type, payload }) => {
   }
 };
 
-const CurrencyWidgetContainer = ({ countryCurrency }) => {
+const CurrentRatingContainer = ({ sightId }) => {
   const [state, dispatch] = React.useReducer(reducer, initialState);
 
   React.useEffect(() => {
     dispatch({ type: 'INIT' });
 
-    getData(countryCurrency)
+    getData(sightId)
       .then((res) => {
+        // TODO: process res into rating and usersArray
         dispatch({
           type: 'READY',
-          payload: res.conversion_rates,
+          payload: res,
         });
       })
       .catch((err) => {
@@ -69,16 +70,16 @@ const CurrencyWidgetContainer = ({ countryCurrency }) => {
   }, []);
 
   return (
-    <CurrencyWidget
-      canBeUpdated
-      {...state}
-      countryCurrency={countryCurrency}
-    />
+    <CurrentRating {...state} />
   );
 };
 
-CurrencyWidgetContainer.propTypes = {
-  countryCurrency: PropTypes.string.isRequired,
+CurrentRatingContainer.defaultProps = {
+  sightId: undefined,
 };
 
-export default CurrencyWidgetContainer;
+CurrentRatingContainer.propTypes = {
+  sightId: PropTypes.string,
+};
+
+export default React.memo(CurrentRatingContainer);

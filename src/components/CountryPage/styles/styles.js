@@ -32,6 +32,14 @@ const styles = makeStyles({
       },
     },
 
+    '& .country-info-loader': {
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+      width: '100%',
+      minHeight: '30vh',
+    },
+
     '@media (max-width: 900px)': {
       '& .main-content': {
         flexDirection: 'column',

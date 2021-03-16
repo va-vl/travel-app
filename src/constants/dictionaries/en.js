@@ -1,6 +1,6 @@
 export default {
   // main page
-  SEARCH_PLACEHOLDER: 'Start typing country or capital',
+  SEARCH_PLACEHOLDER: 'Searching countries and capitals',
   OUR_PROPOSALS: 'Our proposals',
 
   // country page
@@ -16,4 +16,9 @@ export default {
   // weather
   WIND: 'Wind',
   HUMIDITY: 'Humidity',
+
+  // sight ratings
+  CURRENT_SIGHT_RATING: 'Current sight rating',
+  NOT_YET_RATED: 'Not yet rated',
+  SEE_USERS: 'See other ratings',
 };
