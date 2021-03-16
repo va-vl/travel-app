@@ -2,6 +2,7 @@ import * as React from 'react';
 import PropTypes from 'prop-types';
 import ReactMapGL, {
   FullscreenControl,
+  NavigationControl,
   Source,
   Layer,
 } from 'react-map-gl';
@@ -71,6 +72,7 @@ const MapView = ({ capitalLon, capitalLat }) => {
         />
       </Source>
       <FullscreenControl className={classes['fullscreen-control']} />
+      <NavigationControl className={classes['navigation-control']} showCompass={false} />
     </ReactMapGL>
   );
 };
