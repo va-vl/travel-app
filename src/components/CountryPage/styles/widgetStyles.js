@@ -5,6 +5,7 @@ const styles = makeStyles({
   root: {
     width: '20%',
     minWidth: '182px',
+    transform: 'translateY(calc(7.4rem + 2px))',
 
     ...flexColumn(),
     flexWrap: 'wrap',
@@ -53,6 +54,7 @@ const styles = makeStyles({
       width: '100%',
       flexDirection: 'row',
       justifyContent: 'center',
+      transform: 'unset',
 
       '& .widget': {
         margin: '0',
