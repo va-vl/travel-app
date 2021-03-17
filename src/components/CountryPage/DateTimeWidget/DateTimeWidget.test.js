@@ -1,4 +1,4 @@
-import locales from './DateTimeWidget';
+import { locales } from './DateTimeWidget';
 
 const localesArr = Object.values(locales);
 

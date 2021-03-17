@@ -1,4 +1,4 @@
-import CURRENCIES from './CurrencyWidget';
+import { CURRENCIES } from './CurrencyWidget';
 
 test('the currency array exists and has all necessary currencies', () => {
   expect(CURRENCIES).toBeDefined();
