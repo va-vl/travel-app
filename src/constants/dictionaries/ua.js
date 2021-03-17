@@ -9,10 +9,18 @@ export default {
   // auth
   LOG_OUT: 'Вийти з профілю',
   LOG_IN_TO_RATE: 'Авторизуйтесь, щоб поставити оцінку',
-  MODAL_NAME_LABEL: 'Ваше ім\'я',
   MODAL_SUBMIT_BUTTON: 'Надіслати',
   MODAL_SWITCH_LOGIN: 'Логін',
-  MODAL_SWITCH_REGISTER: 'Зареєструватися',
+  MODAL_SWITCH_REGISTER: 'Реєстрація',
+  AUTH_EMAIL_PLACEHOLDER: 'Email',
+  AUTH_PASSWORD_PLACEHOLDER: 'Пароль',
+  AUTH_NAME_PLACEHOLDER: 'Ваше ім\'я',
+  AUTH_BUTTON_OK: 'OK',
+  AUTH_AVATAR_BUTTON: 'Аватар',
+  AUTH_HELPER: 'Не менше 6 символів',
+  AUTH_ERROR_MESSAGE: 'Авторизація провалена',
+  AUTH_SUCCESS_MESSAGE: 'Можна зайти в профіль',
+  PROFILE: 'Профіль',
 
   // weather
   WIND: 'Вітер',

@@ -4,7 +4,7 @@ import Auth from './Auth/Auth';
 import { useAuth } from '../../../../../contexts/AuthContext';
 
 const RateSight = () => {
-  const isAuth = useAuth();
+  const { isAuth } = useAuth();
 
   return (
     <div>
