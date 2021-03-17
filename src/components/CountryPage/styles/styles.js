@@ -8,10 +8,11 @@ const styles = makeStyles({
   },
 
   root: {
+    paddingBottom: '6rem',
     alignItems: 'center',
 
     '& .block:not(:last-child)': {
-      marginBottom: '5rem',
+      marginBottom: '6rem',
     },
 
     '& .main-content': {
