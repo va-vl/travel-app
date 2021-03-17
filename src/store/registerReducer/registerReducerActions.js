@@ -8,7 +8,7 @@ export const REGISTER_FAILURE = 'REGISTER_FAILURE';
 
 const request = () => ({ type: REGISTER_REQUEST });
 const success = () => ({ type: REGISTER_SUCCESS });
-const failure = (payload) => ({ type: REGISTER_FAILURE, payload });
+const failure = () => ({ type: REGISTER_FAILURE });
 
 const sendData = (body) => fetch(BACKEND_USER_REGISTER, {
   method: 'POST',

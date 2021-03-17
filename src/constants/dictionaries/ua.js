@@ -18,6 +18,8 @@ export default {
   AUTH_BUTTON_OK: 'OK',
   AUTH_AVATAR_BUTTON: 'Аватар',
   AUTH_HELPER: 'Не менше 6 символів',
+  AUTH_ERROR_MESSAGE: 'Авторизація провалена',
+  AUTH_SUCCESS_MESSAGE: 'Можна зайти в профіль',
 
   // weather
   WIND: 'Вітер',

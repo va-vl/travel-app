@@ -24,7 +24,9 @@ const Login = ({ handleClose }) => {
       AUTH_BUTTON_OK,
     },
   } = useLanguage();
-  const onSubmit = handleSubmit((data) => { console.log(data); });
+  const onSubmit = handleSubmit((data) => {
+
+  });
 
   return (
     <form onSubmit={onSubmit}>

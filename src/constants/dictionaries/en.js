@@ -19,6 +19,8 @@ export default {
   AUTH_BUTTON_OK: 'OK',
   AUTH_AVATAR_BUTTON: 'Avatar',
   AUTH_HELPER: 'Minimum of 6 characters',
+  AUTH_ERROR_MESSAGE: 'Authorization failed',
+  AUTH_SUCCESS_MESSAGE: 'Success! You can now log in.',
 
   // weather
   WIND: 'Wind',
