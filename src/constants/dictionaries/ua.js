@@ -11,11 +11,13 @@ export default {
   LOG_IN_TO_RATE: 'Авторизуйтесь, щоб поставити оцінку',
   MODAL_SUBMIT_BUTTON: 'Надіслати',
   MODAL_SWITCH_LOGIN: 'Логін',
-  MODAL_SWITCH_REGISTER: 'Зареєструватися',
+  MODAL_SWITCH_REGISTER: 'Реєстрація',
   AUTH_EMAIL_PLACEHOLDER: 'Email',
   AUTH_PASSWORD_PLACEHOLDER: 'Пароль',
   AUTH_NAME_PLACEHOLDER: 'Ваше ім\'я',
   AUTH_BUTTON_OK: 'OK',
+  AUTH_AVATAR_BUTTON: 'Аватар',
+  AUTH_HELPER: 'Не менше 6 символів',
 
   // weather
   WIND: 'Вітер',

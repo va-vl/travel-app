@@ -10,12 +10,14 @@ export default {
   LOG_OUT: 'Выйти из профиля',
   LOG_IN_TO_RATE: 'Авторизуйтесь, чтобы поставить оценку',
   MODAL_SUBMIT_BUTTON: 'Отправить',
-  MODAL_SWITCH_LOGIN: 'Войти',
-  MODAL_SWITCH_REGISTER: 'Зарегистрироваться',
+  MODAL_SWITCH_LOGIN: 'Логин',
+  MODAL_SWITCH_REGISTER: 'Регистрация',
   AUTH_EMAIL_PLACEHOLDER: 'Email',
   AUTH_PASSWORD_PLACEHOLDER: 'Пароль',
   AUTH_NAME_PLACEHOLDER: 'Ваше имя',
   AUTH_BUTTON_OK: 'OK',
+  AUTH_AVATAR_BUTTON: 'Аватар',
+  AUTH_HELPER: 'Минимум 6 знаков',
 
   // weather
   WIND: 'Ветер',

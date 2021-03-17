@@ -17,6 +17,8 @@ export default {
   AUTH_PASSWORD_PLACEHOLDER: 'Password',
   AUTH_NAME_PLACEHOLDER: 'Your name',
   AUTH_BUTTON_OK: 'OK',
+  AUTH_AVATAR_BUTTON: 'Avatar',
+  AUTH_HELPER: 'Minimum of 6 characters',
 
   // weather
   WIND: 'Wind',

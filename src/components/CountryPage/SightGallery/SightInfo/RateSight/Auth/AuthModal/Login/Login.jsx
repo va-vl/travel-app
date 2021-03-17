@@ -2,12 +2,16 @@
 // https://www.williamkurniawan.com/blog/building-a-simple-login-form-with-material-ui-and-react-hook-form
 
 import * as React from 'react';
-import { TextField, Button, Grid } from '@material-ui/core';
+import PropTypes from 'prop-types';
+import {
+  TextField, Grid,
+} from '@material-ui/core';
 import { useForm } from 'react-hook-form';
 import { emailRegex } from '../../../../../../../../constants/index';
 import { useLanguage } from '../../../../../../../../contexts/LanguageContext';
+import AuthModalControls from '../../../../../../../_common/AuthModalControls';
 
-const Login = () => {
+const Login = ({ handleClose }) => {
   const {
     register,
     handleSubmit,
@@ -56,13 +60,18 @@ const Login = () => {
           </Grid>
         </Grid>
         <Grid item xs={12}>
-          <Button color="secondary" fullWidth type="submit" variant="contained">
-            {AUTH_BUTTON_OK}
-          </Button>
+          <AuthModalControls
+            okButtonText={AUTH_BUTTON_OK}
+            handleClose={handleClose}
+          />
         </Grid>
       </Grid>
     </form>
   );
+};
+
+Login.propTypes = {
+  handleClose: PropTypes.func.isRequired,
 };
 
 export default Login;

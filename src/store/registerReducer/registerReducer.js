@@ -5,39 +5,35 @@ import {
 } from './registerReducerActions';
 
 const initialState = {
-  isLoading: false,
   isReady: false,
+  isLoading: false,
   isError: false,
-  errorMessage: null,
 };
 
-const registerReducer = (state = initialState, { type, payload }) => {
+const registerReducer = (state = initialState, { type }) => {
   switch (type) {
     default: {
       return state;
     }
     case REGISTER_REQUEST: {
       return {
-        isLoading: true,
         isReady: false,
+        isLoading: true,
         isError: false,
-        errorMessage: null,
       };
     }
     case REGISTER_SUCCESS: {
       return {
-        isLoading: false,
         isReady: true,
+        isLoading: false,
         isError: false,
-        errorMessage: null,
       };
     }
     case REGISTER_FAILURE: {
       return {
-        isLoading: false,
         isReady: false,
+        isLoading: false,
         isError: true,
-        errorMessage: payload,
       };
     }
   }

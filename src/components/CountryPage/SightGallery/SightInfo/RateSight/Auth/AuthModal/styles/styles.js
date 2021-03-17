@@ -10,7 +10,11 @@ const styles = makeStyles({
 
     '& .MuiDialogContent-root': {
       display: 'flex',
+    },
 
+    '& .auth-actions': {
+      display: 'flex',
+      justifyContent: 'center',
     },
   },
 });

@@ -1,12 +1,10 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
 import {
-  IconButton,
   Dialog,
   DialogActions,
   DialogContent,
 } from '@material-ui/core';
-import CancelIcon from '@material-ui/icons/Cancel';
 import ModeSwitch from './ModeSwitch/ModeSwitch';
 import Login from './Login/Login';
 import Register from './Register/Register';
@@ -26,26 +24,14 @@ const AuthModal = ({ open, handleClose }) => {
       disableEscapeKeyDown
       className={classes.root}
     >
-      <DialogActions style={{
-        display: 'flex',
-        flexWrap: 'wrap',
-        justifyContent: 'space-between',
-      }}
-      >
+      <DialogActions className="auth-actions">
         <ModeSwitch isLogin={isLogin} handleModeSwitch={handleModeSwitch} />
-        <IconButton
-          onClick={handleClose}
-          variant="contained"
-          color="primary"
-        >
-          <CancelIcon />
-        </IconButton>
       </DialogActions>
       <DialogContent dividers>
         {
           isLogin
-            ? <Login />
-            : <Register />
+            ? <Login handleClose={handleClose} />
+            : <Register handleClose={handleClose} />
         }
       </DialogContent>
     </Dialog>
