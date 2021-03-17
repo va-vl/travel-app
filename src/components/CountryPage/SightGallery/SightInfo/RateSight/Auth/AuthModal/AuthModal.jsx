@@ -1,46 +1,48 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
 import {
-  Button, TextField, Dialog, DialogActions, DialogContent,
+  IconButton, Dialog, DialogActions, DialogContent,
 } from '@material-ui/core';
-import { useLanguage } from '../../../../../../../contexts/LanguageContext';
+import CancelIcon from '@material-ui/icons/Cancel';
+import ModeSwitch from './ModeSwitch/ModeSwitch';
+import Login from './Login/Login';
+import Register from './Register/Register';
 
-const FormDialog = ({ open, handleClose, handleSubmit }) => {
-  const {
-    dictionary: {
-      MODAL_SUBMIT_BUTTON,
-      MODAL_CANCEL_BUTTON,
-      MODAL_NAME_LABEL,
-    },
-  } = useLanguage();
+const AuthModal = ({ open, handleClose }) => {
+  const [isLogin, setIsLogin] = React.useState(true);
+  const handleModeSwitch = () => { setIsLogin(!isLogin); };
 
   return (
-    <Dialog open={open} onClose={handleClose}>
-      <DialogContent>
-        <TextField
-          autoFocus
-          fullWidth
-          id="username"
-          type="text"
-          label={MODAL_NAME_LABEL}
-        />
-      </DialogContent>
+    <Dialog
+      open={open}
+      onClose={handleClose}
+      disableBackdropClick
+      disableEscapeKeyDown
+    >
       <DialogActions>
-        <Button onClick={handleClose} color="primary">
-          {MODAL_CANCEL_BUTTON}
-        </Button>
-        <Button onClick={handleSubmit} color="primary">
-          {MODAL_SUBMIT_BUTTON}
-        </Button>
+        <ModeSwitch isLogin={isLogin} handleModeSwitch={handleModeSwitch} />
+        <IconButton
+          onClick={handleClose}
+          variant="contained"
+          color="primary"
+        >
+          <CancelIcon />
+        </IconButton>
       </DialogActions>
+      <DialogContent>
+        {
+          isLogin
+            ? <Login />
+            : <Register />
+        }
+      </DialogContent>
     </Dialog>
   );
 };
 
-FormDialog.propTypes = {
+AuthModal.propTypes = {
   open: PropTypes.bool.isRequired,
   handleClose: PropTypes.func.isRequired,
-  handleSubmit: PropTypes.func.isRequired,
 };
 
-export default FormDialog;
+export default AuthModal;

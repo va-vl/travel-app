@@ -8,7 +8,6 @@ import { LanguageProvider } from './contexts/LanguageContext';
 import { AuthProvider } from './contexts/AuthContext';
 import '@fontsource/roboto';
 import 'react-image-gallery/styles/css/image-gallery.css';
-import 'mapbox-gl/dist/mapbox-gl.css';
 import './index.css';
 
 ReactDOM.render(

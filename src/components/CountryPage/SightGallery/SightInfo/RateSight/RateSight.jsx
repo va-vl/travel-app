@@ -1,18 +1,17 @@
 import * as React from 'react';
-import GiveRating from './GiveRating/GiveRating';
+import LeaveRating from './LeaveRating/LeaveRating';
 import Auth from './Auth/Auth';
-import { useAuth, useAuthChange } from '../../../../../contexts/AuthContext';
+import { useAuth } from '../../../../../contexts/AuthContext';
 
 const RateSight = () => {
   const isAuth = useAuth();
-  const { login, logout } = useAuthChange();
 
   return (
     <div>
       {
         isAuth
-          ? <GiveRating logout={logout} />
-          : <Auth login={login} />
+          ? <LeaveRating />
+          : <Auth />
       }
     </div>
   );

@@ -11,7 +11,7 @@ import Pin from './Pin/Pin';
 import { MAPBOX_API_KEY } from '../../../config/keys';
 import { useLanguage } from '../../../contexts/LanguageContext';
 import { links } from '../../../constants/index';
-import styles from './MapView.styles';
+import styles from './styles/styles';
 
 const { geoJsonData, localizedMapStyles } = links;
 const countryPaint = {
@@ -59,6 +59,7 @@ const MapView = ({ capitalLon, capitalLat }) => {
       mapStyle={mapStyle}
       onViewportChange={setViewport}
       mapboxApiAccessToken={MAPBOX_API_KEY}
+      className={classes.root}
     >
       <Pin
         longitude={capitalLon}
@@ -71,8 +72,10 @@ const MapView = ({ capitalLon, capitalLat }) => {
           paint={countryPaint}
         />
       </Source>
-      <FullscreenControl className={classes['fullscreen-control']} />
-      <NavigationControl className={classes['navigation-control']} showCompass={false} />
+      <div className={classes['controls-wrapper']}>
+        <FullscreenControl />
+        <NavigationControl showCompass={false} />
+      </div>
     </ReactMapGL>
   );
 };
