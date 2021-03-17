@@ -1,0 +1,3 @@
+export const WEATHER_API_KEY = process.env.REACT_APP_WEATHER_API_KEY;
+export const CURRENCY_CONVERTER_API_KEY = process.env.REACT_APP_CURRENCY_CONVERTER_API_KEY;
+export const MAPBOX_API_KEY = process.env.REACT_APP_MAPBOX_API_KEY;

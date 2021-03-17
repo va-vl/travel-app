@@ -1,0 +1,79 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`render correctly Footer component 1`] = `
+<footer
+  className="makeStyles-root-1"
+>
+  <div>
+    <a
+      className="rss-logo"
+      href="https://rs.school/js/"
+      rel="noreferrer"
+      target="_blank"
+    >
+      <img
+        alt="RSSchool-logo"
+        src="logo-rolling-scopes.svg"
+        width="75"
+      />
+    </a>
+    <h4>
+      2021
+    </h4>
+  </div>
+  <div>
+    <a
+      className="github-logo"
+      data-title="velidoss"
+      href="https://github.com/velidoss"
+      rel="noreferrer"
+      target="_blank"
+    >
+      <img
+        alt="github-logo"
+        src="logo-github.svg"
+        width="30"
+      />
+    </a>
+    <a
+      className="github-logo"
+      data-title="arumirinka"
+      href="https://github.com/arumirinka"
+      rel="noreferrer"
+      target="_blank"
+    >
+      <img
+        alt="github-logo"
+        src="logo-github.svg"
+        width="30"
+      />
+    </a>
+    <a
+      className="github-logo"
+      data-title="va-z"
+      href="https://github.com/va-z"
+      rel="noreferrer"
+      target="_blank"
+    >
+      <img
+        alt="github-logo"
+        src="logo-github.svg"
+        width="30"
+      />
+    </a>
+    <a
+      className="github-logo"
+      data-title="reagentjs"
+      href="https://github.com/reagentjs"
+      rel="noreferrer"
+      target="_blank"
+    >
+      <img
+        alt="github-logo"
+        src="logo-github.svg"
+        width="30"
+      />
+    </a>
+  </div>
+</footer>
+`;
