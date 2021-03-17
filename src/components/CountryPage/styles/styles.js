@@ -2,8 +2,9 @@ import { makeStyles } from '@material-ui/core';
 
 const styles = makeStyles({
   link: {
-    display: 'block',
+    display: 'inline-block',
     marginBottom: '1rem',
+    color: '#083b66',
   },
 
   root: {

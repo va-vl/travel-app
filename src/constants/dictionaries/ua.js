@@ -17,6 +17,7 @@ export default {
   // weather
   WIND: 'Вітер',
   HUMIDITY: 'Вологість',
+  M_PER_SEC: 'м/с',
 
   // sight ratings
   CURRENT_SIGHT_RATING: 'Даний рейтинг',

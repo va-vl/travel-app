@@ -7,7 +7,7 @@ const styles = makeStyles({
     '& .sights-info': {
       padding: '1rem',
       borderRadius: '0.5rem',
-      backgroundColor: 'rgba(140, 140, 140, .6)',
+      backgroundColor: 'rgba(255, 255, 255, .65)',
 
       '& h3, p': {
         textShadow: '1px 1px 2px rgba(255, 255, 255, 0.7)',

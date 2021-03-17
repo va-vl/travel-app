@@ -5,6 +5,7 @@ const styles = makeStyles({
   root: {
     width: '20%',
     minWidth: '182px',
+    transform: 'translateY(calc(7.4rem + 2px))',
 
     ...flexColumn(),
     flexWrap: 'wrap',
@@ -15,7 +16,7 @@ const styles = makeStyles({
       ...flexColumn(),
 
       borderRadius: '0.5rem',
-      backgroundColor: 'rgba(60, 60, 60, .25)',
+      backgroundColor: 'rgba(255, 255, 255, .65)',
 
       '&:not(:last-child)': {
         alignItems: 'center',
@@ -46,13 +47,14 @@ const styles = makeStyles({
       alignItems: 'center',
 
       borderRadius: '0.5rem',
-      backgroundColor: 'rgba(60, 60, 60, .25)',
+      backgroundColor: 'rgba(255, 255, 255, .65)',
     },
 
     '@media (max-width: 900px)': {
       width: '100%',
       flexDirection: 'row',
       justifyContent: 'center',
+      transform: 'unset',
 
       '& .widget': {
         margin: '0',

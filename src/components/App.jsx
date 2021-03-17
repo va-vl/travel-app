@@ -26,7 +26,7 @@ const App = () => {
         <Route exact path="/">
           <MainPage />
         </Route>
-        <Route path="/countryId=:countryId">
+        <Route path="/:countryId">
           <CountryPageContainer />
         </Route>
         <Redirect from="*" to="/" />
