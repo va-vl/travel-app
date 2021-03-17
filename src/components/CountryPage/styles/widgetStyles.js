@@ -16,7 +16,7 @@ const styles = makeStyles({
       ...flexColumn(),
 
       borderRadius: '0.5rem',
-      backgroundColor: 'rgba(60, 60, 60, .25)',
+      backgroundColor: 'rgba(255, 255, 255, .65)',
 
       '&:not(:last-child)': {
         alignItems: 'center',
@@ -47,7 +47,7 @@ const styles = makeStyles({
       alignItems: 'center',
 
       borderRadius: '0.5rem',
-      backgroundColor: 'rgba(60, 60, 60, .25)',
+      backgroundColor: 'rgba(255, 255, 255, .65)',
     },
 
     '@media (max-width: 900px)': {

@@ -6,6 +6,7 @@ const styles = makeStyles({
     display: 'flex',
     justifyContent: 'space-between',
     alignItems: 'center',
+    marginTop: '1.25rem',
 
     '& a': {
       transition: '.2s',

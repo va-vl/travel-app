@@ -4,7 +4,7 @@ import flexColumn from './stylesUtils';
 const styles = makeStyles({
   root: {
     margin: '0 auto',
-    padding: '2rem 40px',
+    padding: '2rem 40px 1rem',
 
     ...flexColumn(),
     maxWidth: '1280px',

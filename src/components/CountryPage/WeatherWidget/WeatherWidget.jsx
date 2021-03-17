@@ -19,6 +19,7 @@ const WeatherWidget = ({
     dictionary: {
       WIND,
       HUMIDITY,
+      M_PER_SEC,
     },
   } = useLanguage();
   const classes = styles();
@@ -33,7 +34,7 @@ const WeatherWidget = ({
         <img src={`https:${icon}`} alt="weatherIcon" width="64" />
       </div>
       <div className="weather__down">
-        <p>{`${WIND}: ${Number(gustKph / 3.6).toFixed(1)} m/s`}</p>
+        <p>{`${WIND}: ${Number(gustKph / 3.6).toFixed(1)} ${M_PER_SEC}`}</p>
         <p>{`${HUMIDITY}: ${humidity}%`}</p>
         <p>{text}</p>
       </div>

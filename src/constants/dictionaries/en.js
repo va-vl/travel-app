@@ -16,6 +16,7 @@ export default {
   // weather
   WIND: 'Wind',
   HUMIDITY: 'Humidity',
+  M_PER_SEC: 'm/s',
 
   // sight ratings
   CURRENT_SIGHT_RATING: 'Current sight rating',

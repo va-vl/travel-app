@@ -7,7 +7,7 @@ const CountryCard = ({
   id, name, capital, image,
 }) => (
   <Link
-    to={`/countryId=${id}`}
+    to={`/${id}`}
     className="card"
     style={{
       backgroundImage: `url('${image}')`,
