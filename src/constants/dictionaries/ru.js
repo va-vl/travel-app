@@ -20,6 +20,7 @@ export default {
   AUTH_HELPER: 'Минимум 6 знаков',
   AUTH_ERROR_MESSAGE: 'Авторизация провалена',
   AUTH_SUCCESS_MESSAGE: 'Можно зайти в профиль',
+  PROFILE: 'Профиль',
 
   // weather
   WIND: 'Ветер',

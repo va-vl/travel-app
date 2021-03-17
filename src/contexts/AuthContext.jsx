@@ -71,7 +71,7 @@ const AuthProvider = ({ children }) => {
   }, []);
 
   return (
-    <AuthContext.Provider value={{ isAuth: !!authToken }}>
+    <AuthContext.Provider value={{ isAuth: !!authToken, authToken }}>
       <AuthChangeContext.Provider value={{ login, logout }}>
         {children}
       </AuthChangeContext.Provider>

@@ -21,6 +21,7 @@ export default {
   AUTH_HELPER: 'Minimum of 6 characters',
   AUTH_ERROR_MESSAGE: 'Authorization failed',
   AUTH_SUCCESS_MESSAGE: 'Success! You can now log in.',
+  PROFILE: 'Profile',
 
   // weather
   WIND: 'Wind',
