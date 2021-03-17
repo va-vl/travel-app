@@ -9,10 +9,13 @@ export default {
   // auth
   LOG_OUT: 'Вийти з профілю',
   LOG_IN_TO_RATE: 'Авторизуйтесь, щоб поставити оцінку',
-  MODAL_NAME_LABEL: 'Ваше ім\'я',
   MODAL_SUBMIT_BUTTON: 'Надіслати',
   MODAL_SWITCH_LOGIN: 'Логін',
   MODAL_SWITCH_REGISTER: 'Зареєструватися',
+  AUTH_EMAIL_PLACEHOLDER: 'Email',
+  AUTH_PASSWORD_PLACEHOLDER: 'Пароль',
+  AUTH_NAME_PLACEHOLDER: 'Ваше ім\'я',
+  AUTH_BUTTON_OK: 'OK',
 
   // weather
   WIND: 'Вітер',

@@ -13,6 +13,10 @@ export default {
   MODAL_SUBMIT_BUTTON: 'Submit',
   MODAL_SWITCH_LOGIN: 'Login',
   MODAL_SWITCH_REGISTER: 'Register',
+  AUTH_EMAIL_PLACEHOLDER: 'Email',
+  AUTH_PASSWORD_PLACEHOLDER: 'Password',
+  AUTH_NAME_PLACEHOLDER: 'Your name',
+  AUTH_BUTTON_OK: 'OK',
 
   // weather
   WIND: 'Wind',

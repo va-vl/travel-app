@@ -6,6 +6,7 @@ import * as api from './_api';
 import * as timeConstants from './_timeConstants';
 
 const dictionaryList = { en, ru, ua };
+const emailRegex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
 const languageOptions = {
   en: 'English',
@@ -19,4 +20,5 @@ export {
   api,
   links,
   timeConstants,
+  emailRegex,
 };
