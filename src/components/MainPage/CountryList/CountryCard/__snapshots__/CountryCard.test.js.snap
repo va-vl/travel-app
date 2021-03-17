@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`render correctly CountryCard component 1`] = `
+<a
+  className="card"
+  href="/undefined"
+  onClick={[Function]}
+  style={
+    Object {
+      "backgroundImage": "url('undefined')",
+    }
+  }
+/>
+`;
