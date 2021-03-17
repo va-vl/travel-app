@@ -8,6 +8,9 @@ module.exports = {
     'airbnb',
     'plugin:jest/recommended',
   ],
+  settings: {
+    jest: { version: 26 }
+  },
   parserOptions: {
     ecmaFeatures: {
       jsx: true,
