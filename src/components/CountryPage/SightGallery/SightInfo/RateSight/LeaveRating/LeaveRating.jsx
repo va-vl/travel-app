@@ -4,7 +4,7 @@ import { Button } from '@material-ui/core';
 import { useLanguage } from '../../../../../../contexts/LanguageContext';
 import { useAuthChange } from '../../../../../../contexts/AuthContext';
 
-const GiveRating = () => {
+const LeaveRating = () => {
   const [isRated, setIsRated] = React.useState(false);
   const [value, setValue] = React.useState(null);
   const { dictionary: { LOG_OUT } } = useLanguage();
@@ -31,4 +31,4 @@ const GiveRating = () => {
   );
 };
 
-export default GiveRating;
+export default LeaveRating;

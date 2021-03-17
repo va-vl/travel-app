@@ -38,5 +38,15 @@ CurrencyWidget.propTypes = {
 };
 
 export default withRenderControl(CurrencyWidget, {
-  DefaultComponent: () => <CircularProgress />,
+  DefaultComponent: () => (
+    <div style={{
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+      width: '100%',
+    }}
+    >
+      <CircularProgress />
+    </div>
+  ),
 });
