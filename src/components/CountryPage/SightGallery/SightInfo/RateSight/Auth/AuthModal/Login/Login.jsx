@@ -7,9 +7,12 @@ import {
   TextField, Grid,
 } from '@material-ui/core';
 import { useForm } from 'react-hook-form';
+import { useDispatch, shallowEqual, useSelector } from 'react-redux';
 import { emailRegex } from '../../../../../../../../constants/index';
 import { useLanguage } from '../../../../../../../../contexts/LanguageContext';
+import { loginAC } from '../../../../../../../../store/loginReducer/loginReducerActions';
 import AuthModalControls from '../../../../../../../_common/AuthModalControls';
+import { useAuthChange } from '../../../../../../../../contexts/AuthContext';
 
 const Login = ({ handleClose }) => {
   const {
@@ -22,10 +25,16 @@ const Login = ({ handleClose }) => {
       AUTH_EMAIL_PLACEHOLDER,
       AUTH_PASSWORD_PLACEHOLDER,
       AUTH_BUTTON_OK,
+      AUTH_ERROR_MESSAGE,
     },
   } = useLanguage();
-  const onSubmit = handleSubmit((data) => {
+  const dispatch = useDispatch();
+  const { isLoading, isError } = useSelector((state) => state.loginReducer, shallowEqual);
+  const { login } = useAuthChange();
 
+  const onSubmit = handleSubmit((data) => {
+    dispatch(loginAC(data))
+      .then((tokens) => { login(tokens); });
   });
 
   return (
@@ -61,10 +70,12 @@ const Login = ({ handleClose }) => {
             </Grid>
           </Grid>
         </Grid>
+        {isError && <Grid item xs={12}><div>{AUTH_ERROR_MESSAGE}</div></Grid>}
         <Grid item xs={12}>
           <AuthModalControls
             okButtonText={AUTH_BUTTON_OK}
             handleClose={handleClose}
+            isLoading={isLoading}
           />
         </Grid>
       </Grid>

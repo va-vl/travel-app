@@ -1,11 +1,12 @@
 import * as React from 'react';
 // import { Rating } from '@material-ui/lab';
-import PropTypes from 'prop-types';
 import { useLanguage } from '../../../../../../contexts/LanguageContext';
+import { useAuthChange } from '../../../../../../contexts/AuthContext';
 
-const GiveRating = ({ logout }) => {
+const GiveRating = () => {
   // const [value, setValue] = React.useState(2);
   const { dictionary: { LOG_OUT } } = useLanguage();
+  const { logout } = useAuthChange();
 
   return (
     <div>
@@ -20,10 +21,6 @@ const GiveRating = ({ logout }) => {
       </button>
     </div>
   );
-};
-
-GiveRating.propTypes = {
-  logout: PropTypes.func.isRequired,
 };
 
 export default GiveRating;

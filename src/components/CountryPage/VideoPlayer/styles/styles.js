@@ -10,7 +10,7 @@ const styles = makeStyles({
     height: '0',
     textAlign: 'center',
 
-    '&~iframe': {
+    '& iframe': {
       position: 'absolute',
       left: '0',
       top: '0',
